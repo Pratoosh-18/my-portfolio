@@ -1,11 +1,9 @@
-import { FloatingDockDemo } from "@/components/elements/FloatingDock";
-import { Hero } from "@/components/elements/Hero";
+import { FloatingDockNav } from "@/components/elements/FloatingDock";
 
 export default function Home() {
   return (
-    <div className="h-[800vh]">
-    <Hero/>
-    <FloatingDockDemo/>
+    <div className="h-full">
+      <FloatingDockNav/>
     </div> 
   );
 }

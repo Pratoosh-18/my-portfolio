@@ -10,7 +10,7 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 
-export function FloatingDockDemo() {
+export function FloatingDockNav() {
   const links = [
     {
       title: "Home",

@@ -21,6 +21,7 @@ export default {
   },
   plugins: [
     addVariablesForColors,
+    addVariablesForColorsGrid,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
@@ -37,6 +38,17 @@ export default {
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}
+
+function addVariablesForColorsGrid({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
