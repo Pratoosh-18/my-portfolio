@@ -120,15 +120,14 @@ export function Window({
         width: size.width,
         height: size.height,
         zIndex: zIndex,
-        backgroundColor: "#1d1f20",
+        backgroundColor: "rgba(28,30,31,255)",
         transition: isAnimating ? "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" : "none",
       }}
       onClick={handleWindowClick}
     >
       {/* Window Title Bar */}
       <div
-        className="window-header h-8 border-b border-gray-600 flex items-center justify-between px-4 cursor-move"
-        style={{ backgroundColor: "#1d1f20" }}
+        className="window-header h-8 border-b border-gray-600 flex items-center justify-between px-4 cursor-move bg-[#1c1e1f]"
         onMouseDown={handleMouseDown}
       >
         <div className="flex items-center space-x-2">
