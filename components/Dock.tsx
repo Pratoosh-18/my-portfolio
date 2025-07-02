@@ -94,7 +94,7 @@ export function Dock({ apps, onAppClick, getAppPreview }: DockProps) {
         {regularApps.map((app) => (
           <div key={app.id} className="relative">
             <button
-              className="bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-all duration-200 hover:scale-110"
+              className="rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
               style={{
                 width: `${appSize}px`,
                 height: `${appSize}px`,
@@ -116,7 +116,7 @@ export function Dock({ apps, onAppClick, getAppPreview }: DockProps) {
         {minimizedAppData.map((app) => (
           <div key={`minimized-${app.id}`} className="relative">
             <button
-              className="bg-white/10 rounded-xl flex items-center justify-center hover:bg-white/20 transition-all duration-200 hover:scale-110 border border-white/20"
+              className="rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 border border-white/20"
               style={{
                 width: `${appSize}px`,
                 height: `${appSize}px`,
@@ -133,12 +133,12 @@ export function Dock({ apps, onAppClick, getAppPreview }: DockProps) {
         ))}
 
         {/* Separator before trash */}
-        <div className="bg-white/30 mx-1" style={{ width: "1px", height: `${Math.floor(32 * scale)}px` }}></div>
+        <div className=" mx-1" style={{ width: "1px", height: `${Math.floor(32 * scale)}px` }}></div>
 
         {/* Trash */}
         <div className="relative">
           <button
-            className="bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-all duration-200 hover:scale-110"
+            className=" rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
             style={{
               width: `${appSize}px`,
               height: `${appSize}px`,

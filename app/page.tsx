@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import {
   User,
   FileText,
@@ -16,83 +16,148 @@ import {
   Code,
   CalendarIcon,
   CalculatorIcon,
-} from "lucide-react"
-import { Window } from "@/components/Window"
-import { Dock } from "@/components/Dock"
-import { TopBar } from "@/components/TopBar"
-import { TaskbarProvider, useTaskbar } from "@/context/TaskbarContext"
-import { SettingsApp } from "@/components/settings-app"
-import { AboutMe } from "@/components/AboutMe"
-import { Projects } from "@/components/Projects"
-import { Skills } from "@/components/Skills"
-import { Achievements } from "@/components/Achievements"
-import { Experience } from "@/components/Experience"
-import { Contact } from "@/components/Contact"
-import { Resume } from "@/components/Resume"
-import { PhotoBooth } from "@/components/PhotoBooth"
-import { Notepad } from "@/components/Notepad"
-import { VSCode } from "@/components/VSCode"
-import { Calendar } from "@/components/Calendar"
-import { Calculator } from "@/components/Calculator"
-import { GitHub } from "@/components/GitHub"
-import { Chess } from "@/components/Chess"
+} from "lucide-react";
+import { Window } from "@/components/Window";
+import { Dock } from "@/components/Dock";
+import { TopBar } from "@/components/TopBar";
+import { TaskbarProvider, useTaskbar } from "@/context/TaskbarContext";
+import { SettingsApp } from "@/components/settings-app";
+import { AboutMe } from "@/components/AboutMe";
+import { Projects } from "@/components/Projects";
+import { Skills } from "@/components/Skills";
+import { Achievements } from "@/components/Achievements";
+import { Experience } from "@/components/Experience";
+import { Contact } from "@/components/Contact";
+import { Resume } from "@/components/Resume";
+import { PhotoBooth } from "@/components/PhotoBooth";
+import { Notepad } from "@/components/Notepad";
+import { VSCode } from "@/components/VSCode";
+import { Calendar } from "@/components/Calendar";
+import { Calculator } from "@/components/Calculator";
+import { GitHub } from "@/components/GitHub";
+import { Chess } from "@/components/Chess";
+import Image from "next/image";
 
 interface DockApp {
-  id: string
-  title: string
-  icon: React.ReactNode
-  isActive: boolean
+  id: string;
+  title: string;
+  icon: React.ReactNode;
+  isActive: boolean;
 }
 
 interface WebsiteWindow {
-  id: string
-  title: string
-  url: string
+  id: string;
+  title: string;
+  url: string;
 }
 
 function MacOSDesktop() {
-  const { openApp, closeApp, minimizeApp, isAppOpen, isAppMinimized } = useTaskbar()
-  const [currentWallpaper, setCurrentWallpaper] = useState("/wallpapers/MontereyLight.jpg")
-  const [brightness, setBrightness] = useState(75)
-  const [currentTime, setCurrentTime] = useState(new Date())
-  const [windowZIndices, setWindowZIndices] = useState<Record<string, number>>({})
-  const [highestZIndex, setHighestZIndex] = useState(1000)
-  const [websiteWindows, setWebsiteWindows] = useState<WebsiteWindow[]>([])
-  const [windowOffsets, setWindowOffsets] = useState<Record<string, { x: number; y: number }>>({})
-  const [capturedPhotos, setCapturedPhotos] = useState<Array<{ id: string; data: string; timestamp: number }>>([])
-  const [isDraggingAnyWindow, setIsDraggingAnyWindow] = useState(false)
+  const { openApp, closeApp, minimizeApp, isAppOpen, isAppMinimized } =
+    useTaskbar();
+  const [currentWallpaper, setCurrentWallpaper] = useState(
+    "/wallpapers/MontereyLight.jpg"
+  );
+  const [brightness, setBrightness] = useState(75);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [windowZIndices, setWindowZIndices] = useState<Record<string, number>>(
+    {}
+  );
+  const [highestZIndex, setHighestZIndex] = useState(1000);
+  const [websiteWindows, setWebsiteWindows] = useState<WebsiteWindow[]>([]);
+  const [windowOffsets, setWindowOffsets] = useState<
+    Record<string, { x: number; y: number }>
+  >({});
+  const [capturedPhotos, setCapturedPhotos] = useState<
+    Array<{ id: string; data: string; timestamp: number }>
+  >([]);
+  const [isDraggingAnyWindow, setIsDraggingAnyWindow] = useState(false);
 
   useEffect(() => {
     if (isDraggingAnyWindow) {
-      document.body.classList.add("dragging")
+      document.body.classList.add("dragging");
     } else {
-      document.body.classList.remove("dragging")
+      document.body.classList.remove("dragging");
     }
 
     return () => {
-      document.body.classList.remove("dragging")
-    }
-  }, [isDraggingAnyWindow])
+      document.body.classList.remove("dragging");
+    };
+  }, [isDraggingAnyWindow]);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const dockApps: DockApp[] = [
-    { id: "about", title: "About Me", icon: <User className="w-8 h-8" />, isActive: false },
-    { id: "experience", title: "Experience", icon: <Briefcase className="w-8 h-8" />, isActive: false },
-    { id: "projects", title: "Projects", icon: <Terminal className="w-8 h-8" />, isActive: false },
-    { id: "skills", title: "Skills", icon: <FileText className="w-8 h-8" />, isActive: false },
-    { id: "achievements", title: "Achievements", icon: <Award className="w-8 h-8" />, isActive: false },
-    { id: "resume", title: "Resume", icon: <FileText className="w-8 h-8" />, isActive: false },
-    { id: "contact", title: "Contact", icon: <Mail className="w-8 h-8" />, isActive: false },
-    { id: "notepad", title: "Notepad", icon: <Edit3 className="w-8 h-8" />, isActive: false },
-    { id: "vscode", title: "VS Code", icon: <Code className="w-8 h-8" />, isActive: false },
-    { id: "calendar", title: "Calendar", icon: <CalendarIcon className="w-8 h-8" />, isActive: false },
-    { id: "calculator", title: "Calculator", icon: <CalculatorIcon className="w-8 h-8" />, isActive: false },
+    {
+      id: "about",
+      title: "About Me",
+      icon: <Image height={20} width={20} src="/folder-icon.png" alt="About Me" className="w-[40px] h-[40px]" />,
+      isActive: false,
+    },
+    {
+      id: "experience",
+      title: "Experience",
+      icon: <Briefcase className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "projects",
+      title: "Projects",
+      icon: <Terminal className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "skills",
+      title: "Skills",
+      icon: <FileText className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "achievements",
+      title: "Achievements",
+      icon: <Award className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "resume",
+      title: "Resume",
+      icon: <FileText className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "contact",
+      title: "Contact",
+      icon: <Mail className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "notepad",
+      title: "Notepad",
+      icon: <Edit3 className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "vscode",
+      title: "VS Code",
+      icon: <Code className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "calendar",
+      title: "Calendar",
+      icon: <CalendarIcon className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "calculator",
+      title: "Calculator",
+      icon: <CalculatorIcon className="w-8 h-8" />,
+      isActive: false,
+    },
     {
       id: "chess",
       title: "Chess",
@@ -109,63 +174,83 @@ function MacOSDesktop() {
       ),
       isActive: false,
     },
-    { id: "settings", title: "Settings", icon: <Settings className="w-8 h-8" />, isActive: false },
-    { id: "github", title: "GitHub", icon: <Search className="w-8 h-8" />, isActive: false },
-    { id: "google", title: "Google", icon: <Search className="w-8 h-8" />, isActive: false },
-    { id: "trash", title: "Trash", icon: <Trash2 className="w-8 h-8" />, isActive: false },
-  ]
+    {
+      id: "settings",
+      title: "Settings",
+      icon: <Image height={20} width={20} src="/dock/settings.png" alt="About Me" className="w-[40px] h-[40px]" />,
+      isActive: false,
+    },
+    {
+      id: "github",
+      title: "GitHub",
+      icon: <Search className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "google",
+      title: "Google",
+      icon: <Search className="w-8 h-8" />,
+      isActive: false,
+    },
+    {
+      id: "trash",
+      title: "Trash",
+      icon: <Trash2 className="w-8 h-8" />,
+      isActive: false,
+    },
+  ];
 
   const bringToFront = (appId: string) => {
-    const newZIndex = highestZIndex + 1
-    setWindowZIndices((prev) => ({ ...prev, [appId]: newZIndex }))
-    setHighestZIndex(newZIndex)
-  }
+    const newZIndex = highestZIndex + 1;
+    setWindowZIndices((prev) => ({ ...prev, [appId]: newZIndex }));
+    setHighestZIndex(newZIndex);
+  };
 
   const generateWindowOffset = (appId: string) => {
     if (!windowOffsets[appId]) {
-      const openWindowsCount = Object.keys(windowOffsets).length
-      const offsetX = (openWindowsCount % 5) * 30
-      const offsetY = Math.floor(openWindowsCount / 5) * 30
+      const openWindowsCount = Object.keys(windowOffsets).length;
+      const offsetX = (openWindowsCount % 5) * 30;
+      const offsetY = Math.floor(openWindowsCount / 5) * 30;
 
       setWindowOffsets((prev) => ({
         ...prev,
         [appId]: { x: offsetX, y: offsetY },
-      }))
+      }));
 
-      return { x: offsetX, y: offsetY }
+      return { x: offsetX, y: offsetY };
     }
-    return windowOffsets[appId]
-  }
+    return windowOffsets[appId];
+  };
 
   const handleOpenWebsite = (url: string, title: string) => {
-    const websiteId = `website-${Date.now()}`
+    const websiteId = `website-${Date.now()}`;
     const newWebsiteWindow: WebsiteWindow = {
       id: websiteId,
       title: title,
       url: url,
-    }
+    };
 
-    setWebsiteWindows((prev) => [...prev, newWebsiteWindow])
-    bringToFront(websiteId)
-  }
+    setWebsiteWindows((prev) => [...prev, newWebsiteWindow]);
+    bringToFront(websiteId);
+  };
 
   const closeWebsiteWindow = (websiteId: string) => {
-    setWebsiteWindows((prev) => prev.filter((w) => w.id !== websiteId))
+    setWebsiteWindows((prev) => prev.filter((w) => w.id !== websiteId));
     setWindowOffsets((prev) => {
-      const newOffsets = { ...prev }
-      delete newOffsets[websiteId]
-      return newOffsets
-    })
-  }
+      const newOffsets = { ...prev };
+      delete newOffsets[websiteId];
+      return newOffsets;
+    });
+  };
 
   const handlePhotoCapture = (imageData: string) => {
     const newPhoto = {
       id: `photo-${Date.now()}`,
       data: imageData,
       timestamp: Date.now(),
-    }
-    setCapturedPhotos((prev) => [...prev, newPhoto])
-  }
+    };
+    setCapturedPhotos((prev) => [...prev, newPhoto]);
+  };
 
   const getWindowContent = (appId: string) => {
     const contentMap: Record<string, React.ReactNode> = {
@@ -221,8 +306,15 @@ function MacOSDesktop() {
                 "Backup Folder",
                 "Test Files",
               ].map((item, index) => (
-                <div key={index} className="w-full p-2 text-left flex items-center space-x-3 mb-1">
-                  <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+                <div
+                  key={index}
+                  className="w-full p-2 text-left flex items-center space-x-3 mb-1"
+                >
+                  <img
+                    src="/folder-icon.png"
+                    alt="Folder"
+                    className="w-4 h-4 flex-shrink-0"
+                  />
                   <span className="text-white text-xs truncate">{item}</span>
                 </div>
               ))}
@@ -230,11 +322,17 @@ function MacOSDesktop() {
           </div>
 
           <div className="flex-1 flex flex-col min-w-0">
-            <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
+            <div
+              className="flex items-center p-3 border-b border-gray-600"
+              style={{ backgroundColor: "#1d1f20" }}
+            >
               <span className="text-white font-medium text-sm">Trash Info</span>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: "#1d1f20" }}>
+            <div
+              className="flex-1 overflow-y-auto p-4"
+              style={{ backgroundColor: "#1d1f20" }}
+            >
               <div className="text-center">
                 <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Trash2 className="w-16 h-16 text-gray-400" />
@@ -256,67 +354,70 @@ function MacOSDesktop() {
         </div>
       ),
       photobooth: <PhotoBooth onPhotoCapture={handlePhotoCapture} />,
-    }
+    };
     return (
       contentMap[appId] || (
-        <div className="p-6 text-white h-full" style={{ backgroundColor: "#1d1f20" }}>
+        <div
+          className="p-6 text-white h-full"
+          style={{ backgroundColor: "#1d1f20" }}
+        >
           App content
         </div>
       )
-    )
-  }
+    );
+  };
 
   // Function to get app preview for minimized apps
   const getAppPreview = (appId: string) => {
-    return getWindowContent(appId)
-  }
+    return getWindowContent(appId);
+  };
 
   const handleAppClick = (appId: string) => {
     if (isAppOpen(appId)) {
       if (isAppMinimized(appId)) {
         // If minimized, restore it
-        openApp(appId)
+        openApp(appId);
       }
       // Always bring to front when clicking on open app
-      bringToFront(appId)
+      bringToFront(appId);
     } else {
       // If not open, open it
-      openApp(appId)
-      bringToFront(appId)
+      openApp(appId);
+      bringToFront(appId);
     }
-  }
+  };
 
   const getWindowPosition = (appId: string) => {
-    const offset = generateWindowOffset(appId)
-    const centerX = Math.max(0, (window.innerWidth - 800) / 2)
-    const centerY = Math.max(24, (window.innerHeight - 600) / 2)
+    const offset = generateWindowOffset(appId);
+    const centerX = Math.max(0, (window.innerWidth - 800) / 2);
+    const centerY = Math.max(24, (window.innerHeight - 600) / 2);
 
     return {
       x: centerX + offset.x,
       y: centerY + offset.y,
-    }
-  }
+    };
+  };
 
   const getWindowProps = (appId: string) => {
     if (appId === "calculator") {
       return {
         disableMaximize: true,
         fixedSize: { width: 320, height: 500 },
-      }
+      };
     }
     if (appId === "chess") {
       return {
         disableMaximize: true,
         fixedSize: { width: 600, height: 700 },
-      }
+      };
     }
     if (appId === "settings") {
       return {
         disableMaximize: true,
-      }
+      };
     }
-    return {}
-  }
+    return {};
+  };
 
   return (
     <div
@@ -345,7 +446,10 @@ function MacOSDesktop() {
 
         <div className="w-32 h-32 bg-black rounded-2xl shadow-lg flex flex-col items-center justify-center text-white">
           <div className="text-red-500 text-xs font-medium">
-            {currentTime.toLocaleDateString("en-US", { weekday: "short", month: "short" })}
+            {currentTime.toLocaleDateString("en-US", {
+              weekday: "short",
+              month: "short",
+            })}
           </div>
           <div className="text-4xl font-light">{currentTime.getDate()}</div>
         </div>
@@ -368,7 +472,9 @@ function MacOSDesktop() {
               alt={`Captured ${new Date(photo.timestamp).toLocaleTimeString()}`}
               className="w-24 h-18 object-cover rounded"
             />
-            <p className="text-xs text-center mt-1 text-gray-600">{new Date(photo.timestamp).toLocaleTimeString()}</p>
+            <p className="text-xs text-center mt-1 text-gray-600">
+              {new Date(photo.timestamp).toLocaleTimeString()}
+            </p>
           </div>
         </div>
       ))}
@@ -381,12 +487,12 @@ function MacOSDesktop() {
             appId={app.id}
             title={app.title}
             onClose={() => {
-              closeApp(app.id)
+              closeApp(app.id);
               setWindowOffsets((prev) => {
-                const newOffsets = { ...prev }
-                delete newOffsets[app.id]
-                return newOffsets
-              })
+                const newOffsets = { ...prev };
+                delete newOffsets[app.id];
+                return newOffsets;
+              });
             }}
             onMinimize={() => minimizeApp(app.id)}
             content={getWindowContent(app.id)}
@@ -397,7 +503,7 @@ function MacOSDesktop() {
             onDragEnd={() => setIsDraggingAnyWindow(false)}
             {...getWindowProps(app.id)}
           />
-        ) : null,
+        ) : null
       )}
 
       {/* Website Windows */}
@@ -409,7 +515,10 @@ function MacOSDesktop() {
           onClose={() => closeWebsiteWindow(website.id)}
           onMinimize={() => {}}
           content={
-            <div className="w-full h-full" style={{ backgroundColor: "#1d1f20" }}>
+            <div
+              className="w-full h-full"
+              style={{ backgroundColor: "#1d1f20" }}
+            >
               <iframe
                 src={website.url}
                 className="w-full h-full border-0"
@@ -426,9 +535,13 @@ function MacOSDesktop() {
         />
       ))}
 
-      <Dock apps={dockApps} onAppClick={handleAppClick} getAppPreview={getAppPreview} />
+      <Dock
+        apps={dockApps}
+        onAppClick={handleAppClick}
+        getAppPreview={getAppPreview}
+      />
     </div>
-  )
+  );
 }
 
 export default function Home() {
@@ -436,5 +549,5 @@ export default function Home() {
     <TaskbarProvider>
       <MacOSDesktop />
     </TaskbarProvider>
-  )
+  );
 }
