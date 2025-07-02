@@ -1,0 +1,152 @@
+"use client"
+import { useState } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+
+interface AboutSection {
+  id: string
+  name: string
+  content: string
+}
+
+const aboutSections: AboutSection[] = [
+  {
+    id: "introduction",
+    name: "Introduction",
+    content:
+      "Hello! I'm a passionate full-stack developer with a love for creating innovative digital solutions. I specialize in modern web technologies and enjoy building applications that make a difference.",
+  },
+  {
+    id: "background",
+    name: "Background",
+    content:
+      "With over 3 years of experience in software development, I've worked on various projects ranging from e-commerce platforms to mobile applications. I'm always eager to learn new technologies and tackle challenging problems.",
+  },
+  {
+    id: "skills",
+    name: "Skills",
+    content:
+      "My expertise includes React, Next.js, Node.js, TypeScript, Python, and various databases. I'm also experienced with cloud platforms like AWS and have a strong foundation in UI/UX design.",
+  },
+  {
+    id: "interests",
+    name: "Interests",
+    content:
+      "When I'm not coding, I enjoy photography, traveling, and exploring new cuisines. I'm also passionate about open-source contributions and mentoring aspiring developers.",
+  },
+  {
+    id: "goals",
+    name: "Goals",
+    content:
+      "I'm constantly working towards becoming a better developer and contributing to meaningful projects. My goal is to create technology that positively impacts people's lives.",
+  },
+]
+
+export function AboutMe() {
+  const [selectedSection, setSelectedSection] = useState<AboutSection>(aboutSections[0])
+
+  return (
+    <div className="flex h-full" style={{ backgroundColor: "#1d1f20" }}>
+      {/* Left Panel - About Sections */}
+      <div className="w-64 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1d1f20" }}>
+        <div className="p-3 border-b border-gray-600">
+          <h2 className="text-base font-semibold text-white">About Me</h2>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-2">
+          {aboutSections.map((section) => (
+            <button
+              key={section.id}
+              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 rounded-md mb-1 ${
+                selectedSection.id === section.id ? "bg-blue-600" : ""
+              }`}
+              onClick={() => setSelectedSection(section)}
+            >
+              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <span className="text-white text-xs truncate">{section.name}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Middle Panel - Section Content */}
+      <div className="flex-1 border-r border-gray-600 flex flex-col" style={{ backgroundColor: "#1d1f20" }}>
+        <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
+          <div className="flex items-center space-x-2">
+            <button className="p-1 hover:bg-gray-700 rounded">
+              <ChevronLeft className="w-3 h-3 text-gray-400" />
+            </button>
+            <button className="p-1 hover:bg-gray-700 rounded">
+              <ChevronRight className="w-3 h-3 text-gray-400" />
+            </button>
+            <span className="text-white font-medium text-sm">{selectedSection.name}</span>
+          </div>
+        </div>
+
+        <div className="flex-1 p-4 overflow-y-auto">
+          <div className="bg-gray-800 rounded-lg p-4">
+            <h3 className="text-white font-medium mb-3 text-sm">{selectedSection.name}</h3>
+            <p className="text-gray-300 leading-relaxed text-xs">{selectedSection.content}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Panel - Profile Info */}
+      <div className="w-80 flex flex-col">
+        <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
+          <div className="flex items-center space-x-2">
+            <button className="p-1 hover:bg-gray-700 rounded">
+              <ChevronLeft className="w-3 h-3 text-gray-400" />
+            </button>
+            <button className="p-1 hover:bg-gray-700 rounded">
+              <ChevronRight className="w-3 h-3 text-gray-400" />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex-1 p-3 flex flex-col justify-center items-center" style={{ backgroundColor: "#1d1f20" }}>
+          <div className="text-center max-w-full">
+            <div className="mb-3">
+              <img
+                src="/placeholder.svg?height=160&width=160"
+                alt="Profile"
+                className="w-40 h-40 rounded-lg object-cover mx-auto shadow-lg"
+              />
+            </div>
+
+            <div className="space-y-1 mb-3">
+              <h1 className="text-lg font-bold text-white">John Doe</h1>
+              <p className="text-sm text-gray-400">Age: 25</p>
+              <p className="text-gray-400 text-xs">Full Stack Developer</p>
+            </div>
+
+            <div className="text-left bg-gray-800 rounded-lg p-2 w-full">
+              <h3 className="text-white font-medium mb-2 text-xs">Information</h3>
+              <div className="space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-gray-400 text-xs">Created</span>
+                  <span className="text-white text-right text-xs">Monday, 23 June 2025 at 3:27 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400 text-xs">Modified</span>
+                  <span className="text-white text-right text-xs">Monday, 23 June 2025 at 3:27 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400 text-xs">Last opened</span>
+                  <span className="text-white text-right text-xs">Monday, 23 June 2025 at 3:27 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400 text-xs">Dimensions</span>
+                  <span className="text-white text-xs">380×430</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400 text-xs">Resolution</span>
+                  <span className="text-white text-xs">144×144</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
