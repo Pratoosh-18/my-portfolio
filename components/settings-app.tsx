@@ -72,8 +72,6 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
   const [activeSection, setActiveSection] = useState("wallpaper")
   const [wifiEnabled, setWifiEnabled] = useState(true)
   const [bluetoothEnabled, setBluetoothEnabled] = useState(true)
-  const [trueTone, setTrueTone] = useState(true)
-  const [autoBrightness, setAutoBrightness] = useState(false)
 
   const renderContent = () => {
     switch (activeSection) {
@@ -107,26 +105,24 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
 
             {wifiEnabled && (
               <>
-                <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
+                <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full" />
-                      <span className="text-white text-sm font-medium">realme 8s 5G</span>
+                      <span className="text-white text-sm font-medium">Pratoosh's iphone</span>
                       <span className="text-xs text-gray-400">Connected</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-4 h-4 text-gray-400">🔒</div>
                       <Wifi className="w-4 h-4 text-white" />
-                      <button className="px-3 py-1 rounded text-xs text-white" style={{ backgroundColor: "#1d1f20" }}>
-                        Details...
-                      </button>
+
                     </div>
                   </div>
                 </div>
 
                 <div>
                   <h4 className="text-white font-medium text-sm mb-3">Personal Hotspots</h4>
-                  <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
+                  <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                     <div className="flex items-center justify-between">
                       <span className="text-white text-sm">{"Pratoosh's iPhone"}</span>
                       <div className="flex items-center space-x-2">
@@ -139,16 +135,16 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
 
                 <div>
                   <h4 className="text-white font-medium text-sm mb-3">Known Networks</h4>
-                  <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
+                  <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <span className="text-green-500">✓</span>
-                        <span className="text-white text-sm">realme 8s 5G</span>
+                        <span className="text-white text-sm">Hostel wifi</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <div className="w-4 h-4 text-gray-400">🔒</div>
                         <Wifi className="w-4 h-4 text-white" />
-                        <button className="text-gray-400">⋯</button>
+
                       </div>
                     </div>
                   </div>
@@ -156,14 +152,10 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
 
                 <div>
                   <h4 className="text-white font-medium text-sm mb-3">Other Networks</h4>
-                  <div className="rounded-lg p-8 text-center" style={{ backgroundColor: "#1d1f20" }}>
+                  <div className="rounded-lg p-8 text-center bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                     <span className="text-gray-400">No Networks</span>
                   </div>
-                  <div className="mt-2 text-right">
-                    <button className="px-3 py-1 rounded text-xs text-white" style={{ backgroundColor: "#1d1f20" }}>
-                      Other...
-                    </button>
-                  </div>
+
                 </div>
               </>
             )}
@@ -198,7 +190,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
             </div>
 
             {bluetoothEnabled && (
-              <div className="rounded-lg p-8 text-center" style={{ backgroundColor: "#1d1f20" }}>
+              <div className="rounded-lg p-8 text-center bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <span className="text-gray-400">No devices found</span>
               </div>
             )}
@@ -209,48 +201,22 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
         return (
           <div className="p-4 space-y-4">
             <div className="text-center">
-              <div className="inline-block rounded-lg p-4 mb-4" style={{ backgroundColor: "#1d1f20" }}>
+              <div className="inline-block rounded-lg p-4 mb-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <div className="w-32 h-20 bg-gradient-to-br from-blue-600 to-black rounded border-2 border-gray-600 relative">
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gray-600 rounded-full" />
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-[gray-600] rounded-full" />
                 </div>
               </div>
               <h3 className="text-white font-medium text-sm">Built-in Display</h3>
-            </div>
-
-            <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
-              <div className="grid grid-cols-3 gap-4 mb-4">
-                <div className="text-center">
-                  <div className="rounded p-3 mb-2" style={{ backgroundColor: "#1d1f20" }}>
-                    <div className="text-xs text-gray-300">Here's to the crazy ones...</div>
-                  </div>
-                  <span className="text-xs text-white">Larger Text</span>
-                </div>
-                <div className="text-center">
-                  <div className="bg-blue-600 rounded p-3 mb-2 border-2 border-blue-400">
-                    <div className="text-xs text-white">Here's to the crazy ones...</div>
-                  </div>
-                  <span className="text-xs text-white">Default</span>
-                </div>
-                <div className="text-center">
-                  <div className="rounded p-3 mb-2" style={{ backgroundColor: "#1d1f20" }}>
-                    <div className="text-xs text-gray-300">Here's to the crazy ones...</div>
-                  </div>
-                  <span className="text-xs text-white">More Space</span>
-                </div>
-              </div>
             </div>
 
             <div className="space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white font-medium text-sm">Brightness</span>
-                  <div className="flex items-center space-x-2">
-                    <Sun className="w-4 h-4 text-gray-400" />
-                    <Sun className="w-5 h-5 text-white" />
-                  </div>
+
                 </div>
                 <div className="flex items-center space-x-4">
-                  <Sun className="w-4 h-4 text-gray-400" />
+                  <Sun className="w-5 h-5 text-gray-400" />
                   <div className="flex-1 relative">
                     <input
                       type="range"
@@ -261,23 +227,14 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                       className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider"
                     />
                   </div>
-                  <Sun className="w-5 h-5 text-white" />
+                  <Sun className="w-7 h-7 text-white" />
                 </div>
               </div>
 
-              <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
+              <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white font-medium text-sm">Automatically adjust brightness</span>
-                  <div
-                    className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${autoBrightness ? "bg-blue-500" : "bg-gray-600"
-                      }`}
-                    onClick={() => setAutoBrightness(!autoBrightness)}
-                  >
-                    <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${autoBrightness ? "translate-x-6" : "translate-x-0.5"
-                        }`}
-                    />
-                  </div>
+
                 </div>
                 <div className="flex items-start space-x-2">
                   <span className="text-yellow-500 text-xs">⚠️</span>
@@ -288,7 +245,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                 </div>
               </div>
 
-              <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
+              <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <div className="flex items-center justify-between mb-2">
                   <div>
                     <span className="text-white font-medium text-sm">True Tone</span>
@@ -297,25 +254,16 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                       conditions.
                     </p>
                   </div>
-                  <div
-                    className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${trueTone ? "bg-blue-500" : "bg-gray-600"
-                      }`}
-                    onClick={() => setTrueTone(!trueTone)}
-                  >
-                    <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${trueTone ? "translate-x-6" : "translate-x-0.5"
-                        }`}
-                    />
-                  </div>
+
                 </div>
               </div>
 
-              <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
+              <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <div className="flex items-center justify-between">
                   <span className="text-white font-medium text-sm">Colour profile</span>
                   <div className="flex items-center space-x-2">
                     <span className="text-gray-400">Colour LCD</span>
-                    <ChevronDown className="w-4 h-4 text-gray-400" />
+
                   </div>
                 </div>
               </div>
@@ -327,7 +275,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
         return (
           <div className="p-4 space-y-4">
             <div className="flex items-center justify-between mb-4">
-              <div className="rounded-lg p-4 w-48" style={{ backgroundColor: "#1d1f20" }}>
+              <div className="rounded-lg p-1 w-48 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <img
                   src={currentWallpaper || "/placeholder.svg"}
                   alt="Current wallpaper"
@@ -362,7 +310,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                         src={wallpaper.url}
                         alt={wallpaper.name}
                         fill
-                        className="object-cover" 
+                        className="object-cover"
                       />
                     </div>
                     <p className="text-[12px] m-1">{wallpaper.name}</p>
@@ -384,9 +332,9 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
   }
 
   return (
-    <div className="flex h-full text-white" style={{ backgroundColor: "#1d1f20" }}>
+    <div className="flex h-full text-white bg-[#262729]">
       {/* Sidebar */}
-      <div className="w-80 border-r border-gray-700" style={{ backgroundColor: "#1d1f20" }}>
+      <div className="w-80 border-r border-gray-700 flex-[0.4] bg-[#262729]" >
         {/* Search */}
         <div className="p-4 border-b border-gray-700">
           <div className="relative">
@@ -394,8 +342,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
             <input
               type="text"
               placeholder="Search"
-              className="w-full rounded-lg pl-10 pr-4 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              style={{ backgroundColor: "#1d1f20" }}
+              className="w-full rounded-lg pl-10 pr-4 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-[#262729]"
             />
           </div>
         </div>
@@ -405,12 +352,12 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
           {settingsSections.map((section) => (
             <button
               key={section.id}
-              className={`w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-700 transition-colors ${activeSection === section.id ? "bg-blue-600 hover:bg-blue-600" : ""
+              className={`w-[90%] flex items-center space-x-3 px-2 py-1 text-lefttransition-colors m-[10px] ${activeSection === section.id ? "bg-blue-500 rounded-[4px]" : ""
                 }`}
               onClick={() => setActiveSection(section.id)}
             >
               {section.icon}
-              <span className="text-sm text-white text-sm">{section.title}</span>
+              <span className="text-xs text-white">{section.title}</span>
             </button>
           ))}
         </div>
