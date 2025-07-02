@@ -58,12 +58,12 @@ const wallpapers = [
   },
   {
     id: "BigSurGraphicLight",
-    name: "Big Sur Graphic Light",
+    name: "Big Sur Graphic",
     url: "/wallpapers/BigSurGraphicLight.jpg",
   },
   {
     id: "BigSurGraphicDark",
-    name: "Big Sur Graphic Dark",
+    name: "Big Sur Graphic",
     url: "/wallpapers/BigSurGraphicDark.jpg",
   },
 ]
@@ -338,60 +338,34 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                 <div className="flex items-center justify-between">
                   <span className="text-white font-medium text-sm">Chroma Blue</span>
                   <div className="flex items-center space-x-2">
-                    <span className="text-gray-400">Automatic</span>
-                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                    <span className="text-gray-400 text-sm">Automatic</span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-white font-medium text-sm">Show on all Spaces</span>
-                  <div className="w-12 h-6 rounded-full bg-blue-500 cursor-pointer">
-                    <div className="w-5 h-5 bg-white rounded-full mt-0.5 translate-x-6" />
-                  </div>
+                  <span className="text-white font-medium text-xs">Show on all Spaces</span>
                 </div>
               </div>
             </div>
-
-            <div className="flex space-x-4 mb-4">
-              <button className="px-4 py-2 rounded text-white text-xs" style={{ backgroundColor: "#1d1f20" }}>
-                Add Photo ▼
-              </button>
-              <button className="px-4 py-2 rounded text-white text-xs" style={{ backgroundColor: "#1d1f20" }}>
-                Add Folder or Album ▼
-              </button>
-            </div>
-
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h4 className="text-white font-medium text-sm">Dynamic Wallpapers</h4>
-                <span className="text-gray-400 text-xs">Show All (33)</span>
               </div>
               <div className="grid grid-cols-4 gap-4">
                 {wallpapers.map((wallpaper) => (
-                  <div
-                    key={wallpaper.id}
-                    className={`relative cursor-pointer rounded-lg overflow-hidden ${currentWallpaper === wallpaper.url ? "ring-2 ring-blue-500" : ""
-                      }`}
-                    onClick={() => { console.log(wallpaper.url), setCurrentWallpaper(wallpaper.url) }}
-                  >
-                    <div className="relative w-full h-20">
+                  <div className="flex flex-col justify-center items-center">
+                    <div
+                      key={wallpaper.name}
+                      onClick={() => setCurrentWallpaper(wallpaper.url)}
+                      className="relative w-full aspect-video cursor-pointer rounded overflow-hidden"
+                    >
                       <Image
                         src={wallpaper.url}
                         alt={wallpaper.name}
                         fill
-                        className="object-cover"
+                        className="object-cover" 
                       />
                     </div>
-                    <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all" />
-                    <div className="absolute bottom-1 left-1 right-1 text-center">
-                      <span className="text-white text-xs font-medium bg-black bg-opacity-50 px-2 py-1 rounded">
-                        {wallpaper.name}
-                      </span>
-                    </div>
-                    {currentWallpaper === wallpaper.url && (
-                      <div className="absolute top-2 right-2 w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs">✓</span>
-                      </div>
-                    )}
+                    <p className="text-[12px] m-1">{wallpaper.name}</p>
                   </div>
                 ))}
               </div>
