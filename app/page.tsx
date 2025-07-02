@@ -174,7 +174,7 @@ function MacOSDesktop() {
       ),
       isActive: false,
     },
-    {
+    { 
       id: "settings",
       title: "Settings",
       icon: <Image height={20} width={20} src="/dock/settings.png" alt="About Me" className="w-[40px] h-[40px]" />,
