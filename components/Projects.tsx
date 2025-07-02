@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 import type React from "react"
-import Image from "next/image"
 
 import { ChevronLeft, ChevronRight, FileText, ExternalLink } from "lucide-react"
 
@@ -42,31 +41,31 @@ const projects: Project[] = [
     url: "https://road-lens.vercel.app/",
     type: "folder",
     files: [
-      { id: "app", name: "app", type: "folder", icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" /> },
+      { id: "app", name: "app", type: "folder", icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
       {
         id: "components",
         name: "components",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
-      { id: "lib", name: "lib", type: "folder", icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" /> },
+      { id: "lib", name: "lib", type: "folder", icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
       {
         id: "public",
         name: "public",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "styles",
         name: "styles",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "utils",
         name: "utils",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       { id: "package", name: "package.json", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
       { id: "readme", name: "README.md", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
@@ -102,31 +101,31 @@ const projects: Project[] = [
     url: "https://estate-edge-real-estate-marketplace.vercel.app/",
     type: "folder",
     files: [
-      { id: "app", name: "app", type: "folder", icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" /> },
+      { id: "app", name: "app", type: "folder", icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
       {
         id: "components",
         name: "components",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "prisma",
         name: "prisma",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "public",
         name: "public",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
-      { id: "lib", name: "lib", type: "folder", icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" /> },
+      { id: "lib", name: "lib", type: "folder", icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
       {
         id: "types",
         name: "types",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       { id: "package", name: "package.json", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
       { id: "env", name: ".env.local", type: "file", icon: <FileText className="w-4 h-4 text-green-500" /> },
@@ -147,19 +146,19 @@ const projects: Project[] = [
         id: "client",
         name: "client",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "server",
         name: "server",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "shared",
         name: "shared",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
     ],
   },
@@ -176,19 +175,19 @@ const projects: Project[] = [
         id: "mobile",
         name: "mobile",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "backend",
         name: "backend",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
       {
         id: "admin",
         name: "admin",
         type: "folder",
-        icon: <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4" />,
+        icon: <img src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
       },
     ],
   },
@@ -224,7 +223,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
               }`}
               onClick={() => setSelectedProject(project)}
             >
-              <Image src="/folder-icon.png" alt="Folder" width={16} height={16} className="w-4 h-4 flex-shrink-0" />
+              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{project.name}</span>
             </button>
           ))}
@@ -290,11 +289,9 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
           <div className="space-y-4">
             {/* Project Preview Image */}
             <div className="w-full flex justify-center">
-              <Image
-                src="/placeholder.svg"
+              <img
+                src="/placeholder.svg?height=200&width=300"
                 alt={selectedProject.name}
-                width={300}
-                height={200}
                 className="max-w-full h-48 object-cover rounded-lg shadow-lg"
               />
             </div>

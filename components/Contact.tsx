@@ -4,7 +4,6 @@ import type React from "react"
 
 import { ChevronLeft, ChevronRight, Mail, Phone, MapPin, Github, Linkedin, Copy, ExternalLink } from "lucide-react"
 import { GitHub } from "./GitHub"
-import Image from "next/image"
 
 interface ContactMethod {
   id: string
@@ -107,7 +106,7 @@ export function Contact({ onOpenWebsite }: ContactProps) {
               }`}
               onClick={() => setSelectedContact(contact)}
             >
-              <Image src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{contact.name}</span>
             </button>
           ))}

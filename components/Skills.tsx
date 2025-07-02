@@ -2,7 +2,6 @@
 import { useState } from "react"
 import type React from "react"
 import { ChevronLeft, ChevronRight, FileText } from "lucide-react"
-import Image from "next/image"
 
 interface SkillCategory {
   id: string
@@ -171,7 +170,7 @@ export function Skills() {
               }`}
               onClick={() => handleCategoryChange(category)}
             >
-              <Image src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{category.name}</span>
             </button>
           ))}

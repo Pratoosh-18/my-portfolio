@@ -41,26 +41,30 @@ const settingsSections: SettingsSection[] = [
 ]
 
 const wallpapers = [
-  { id: "default", name: "Chroma Blue", url: "/macos-wallpaper.png" },
   {
-    id: "sequoia",
+    id: "default",
+    name: "Monterey Light",
+    url: "/wallpapers/MontereyLight.jpg",
+  },
+  {
+    id: "Sequoia",
     name: "Sequoia",
-    url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&h=1080&fit=crop",
+    url: "/wallpapers/Sequoia.jpg",
   },
   {
-    id: "macintosh",
-    name: "Macintosh",
-    url: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop",
+    id: "MontereyDark",
+    name: "Monterey Dark",
+    url: "/wallpapers/MontereyDark.jpg",
   },
   {
-    id: "sonoma",
-    name: "Sonoma",
-    url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop",
+    id: "BigSurGraphicLight",
+    name: "Big Sur Graphic Light",
+    url: "/wallpapers/BigSurGraphicLight.jpg",
   },
   {
-    id: "ventura",
-    name: "Ventura",
-    url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop",
+    id: "BigSurGraphicDark",
+    name: "Big Sur Graphic Dark",
+    url: "/wallpapers/BigSurGraphicDark.jpg",
   },
 ]
 
@@ -124,7 +128,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                   <h4 className="text-white font-medium text-sm mb-3">Personal Hotspots</h4>
                   <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
                     <div className="flex items-center justify-between">
-                      <span className="text-white text-sm">{"Pratoosh&apos;s iPhone"}</span>
+                      <span className="text-white text-sm">{"Pratoosh's iPhone"}</span>
                       <div className="flex items-center space-x-2">
                         <div className="w-4 h-4 text-gray-400">🔒</div>
                         <div className="w-4 h-4 text-gray-400">📱</div>
@@ -217,19 +221,19 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
               <div className="grid grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
                   <div className="rounded p-3 mb-2" style={{ backgroundColor: "#1d1f20" }}>
-                    <div className="text-xs text-gray-300">Here is to the crazy ones...</div>
+                    <div className="text-xs text-gray-300">Here's to the crazy ones...</div>
                   </div>
                   <span className="text-xs text-white">Larger Text</span>
                 </div>
                 <div className="text-center">
                   <div className="bg-blue-600 rounded p-3 mb-2 border-2 border-blue-400">
-                    <div className="text-xs text-white">Here is to the crazy ones...</div>
+                    <div className="text-xs text-white">Here's to the crazy ones...</div>
                   </div>
                   <span className="text-xs text-white">Default</span>
                 </div>
                 <div className="text-center">
                   <div className="rounded p-3 mb-2" style={{ backgroundColor: "#1d1f20" }}>
-                    <div className="text-xs text-gray-300">Here is to the crazy ones...</div>
+                    <div className="text-xs text-gray-300">Here's to the crazy ones...</div>
                   </div>
                   <span className="text-xs text-white">More Space</span>
                 </div>
@@ -324,7 +328,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
           <div className="p-4 space-y-4">
             <div className="flex items-center justify-between mb-4">
               <div className="rounded-lg p-4 w-48" style={{ backgroundColor: "#1d1f20" }}>
-                <Image
+                <img
                   src={currentWallpaper || "/placeholder.svg"}
                   alt="Current wallpaper"
                   className="w-full h-24 object-cover rounded"
@@ -367,13 +371,16 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                     key={wallpaper.id}
                     className={`relative cursor-pointer rounded-lg overflow-hidden ${currentWallpaper === wallpaper.url ? "ring-2 ring-blue-500" : ""
                       }`}
-                    onClick={() => setCurrentWallpaper(wallpaper.url)}
+                    onClick={() => { console.log(wallpaper.url), setCurrentWallpaper(wallpaper.url) }}
                   >
-                    <Image
-                      src={wallpaper.url || "/placeholder.svg"}
-                      alt={wallpaper.name}
-                      className="w-full h-20 object-cover"
-                    />
+                    <div className="relative w-full h-20">
+                      <Image
+                        src={wallpaper.url}
+                        alt={wallpaper.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all" />
                     <div className="absolute bottom-1 left-1 right-1 text-center">
                       <span className="text-white text-xs font-medium bg-black bg-opacity-50 px-2 py-1 rounded">
@@ -429,7 +436,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
               onClick={() => setActiveSection(section.id)}
             >
               {section.icon}
-              <span className="text-sm text-white">{section.title}</span>
+              <span className="text-sm text-white text-sm">{section.title}</span>
             </button>
           ))}
         </div>
