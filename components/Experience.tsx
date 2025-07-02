@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Briefcase, Calendar, MapPin, FileText } from "lucide-react"
+import Image from "next/image"
 
 interface Experience {
   id: string
@@ -110,7 +111,7 @@ export function Experience() {
               }`}
               onClick={() => setSelectedExperience(experience)}
             >
-              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <Image src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{experience.position}</span>
             </button>
           ))}

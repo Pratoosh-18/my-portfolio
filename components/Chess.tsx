@@ -85,7 +85,6 @@ export function Chess() {
   const [selectedSquare, setSelectedSquare] = useState<Position | null>(null)
   const [currentPlayer, setCurrentPlayer] = useState<PieceColor>("white")
   const [validMoves, setValidMoves] = useState<Position[]>([])
-  const [gameStatus, setGameStatus] = useState<string>("White to move")
 
   const isValidPosition = (row: number, col: number): boolean => {
     return row >= 0 && row < 8 && col >= 0 && col < 8
@@ -269,7 +268,6 @@ export function Chess() {
 
         setBoard(newBoard)
         setCurrentPlayer(currentPlayer === "white" ? "black" : "white")
-        setGameStatus(`${currentPlayer === "white" ? "Black" : "White"} to move`)
       }
 
       setSelectedSquare(null)
@@ -289,7 +287,6 @@ export function Chess() {
     setSelectedSquare(null)
     setValidMoves([])
     setCurrentPlayer("white")
-    setGameStatus("White to move")
   }
 
   const isSquareSelected = (row: number, col: number) => {

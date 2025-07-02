@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 interface AboutSection {
   id: string
@@ -61,7 +62,7 @@ export function AboutMe() {
               }`}
               onClick={() => setSelectedSection(section)}
             >
-              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <Image src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{section.name}</span>
             </button>
           ))}
@@ -106,7 +107,7 @@ export function AboutMe() {
         <div className="flex-1 p-3 flex flex-col justify-center items-center" style={{ backgroundColor: "#1d1f20" }}>
           <div className="text-center max-w-full">
             <div className="mb-3">
-              <img
+              <Image
                 src="/placeholder.svg?height=160&width=160"
                 alt="Profile"
                 className="w-40 h-40 rounded-lg object-cover mx-auto shadow-lg"

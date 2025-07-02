@@ -36,6 +36,7 @@ import { Calendar } from "@/components/Calendar"
 import { Calculator } from "@/components/Calculator"
 import { GitHub } from "@/components/GitHub"
 import { Chess } from "@/components/Chess"
+import Image from "next/image"
 
 interface DockApp {
   id: string
@@ -222,7 +223,7 @@ function MacOSDesktop() {
                 "Test Files",
               ].map((item, index) => (
                 <div key={index} className="w-full p-2 text-left flex items-center space-x-3 mb-1">
-                  <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+                  <Image src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
                   <span className="text-white text-xs truncate">{item}</span>
                 </div>
               ))}
@@ -363,13 +364,13 @@ function MacOSDesktop() {
           }}
         >
           <div className="bg-white p-2 rounded-lg shadow-lg">
-            <img
+            <Image
               src={photo.data || "/placeholder.svg"}
               alt={`Captured ${new Date(photo.timestamp).toLocaleTimeString()}`}
               className="w-24 h-18 object-cover rounded"
             />
             <p className="text-xs text-center mt-1 text-gray-600">{new Date(photo.timestamp).toLocaleTimeString()}</p>
-          </div>
+          </div> 
         </div>
       ))}
 
@@ -378,7 +379,6 @@ function MacOSDesktop() {
         isAppOpen(app.id) && !isAppMinimized(app.id) ? (
           <Window
             key={app.id}
-            appId={app.id}
             title={app.title}
             onClose={() => {
               closeApp(app.id)
@@ -404,7 +404,6 @@ function MacOSDesktop() {
       {websiteWindows.map((website) => (
         <Window
           key={website.id}
-          appId={website.id}
           title={website.title}
           onClose={() => closeWebsiteWindow(website.id)}
           onMinimize={() => {}}

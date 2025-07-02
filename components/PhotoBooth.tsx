@@ -86,7 +86,7 @@ export function PhotoBooth({ onPhotoCapture }: PhotoBoothProps) {
     return () => {
       stopCamera()
     }
-  }, [])
+  }, [startCamera, stopCamera])
 
   return (
     <div className="flex flex-col h-full relative bg-black">

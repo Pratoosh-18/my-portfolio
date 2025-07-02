@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Wifi, Bluetooth, Search, ChevronLeft, ChevronRight, ChevronDown, Sun, Monitor, Palette } from "lucide-react"
+import Image from "next/image"
 
 interface SettingsAppProps {
   currentWallpaper: string
@@ -88,15 +89,13 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
               </div>
               <div className="flex-shrink-0 ml-4">
                 <div
-                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${
-                    wifiEnabled ? "bg-blue-500" : "bg-gray-600"
-                  }`}
+                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${wifiEnabled ? "bg-blue-500" : "bg-gray-600"
+                    }`}
                   onClick={() => setWifiEnabled(!wifiEnabled)}
                 >
                   <div
-                    className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                      wifiEnabled ? "translate-x-6" : "translate-x-0.5"
-                    }`}
+                    className={`w-5 h-5 bg-white rounded-full transition-transform ${wifiEnabled ? "translate-x-6" : "translate-x-0.5"
+                      }`}
                   />
                 </div>
               </div>
@@ -125,7 +124,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                   <h4 className="text-white font-medium text-sm mb-3">Personal Hotspots</h4>
                   <div className="rounded-lg p-4" style={{ backgroundColor: "#1d1f20" }}>
                     <div className="flex items-center justify-between">
-                      <span className="text-white text-sm">{"Pratoosh's iPhone"}</span>
+                      <span className="text-white text-sm">{"Pratoosh&apos;s iPhone"}</span>
                       <div className="flex items-center space-x-2">
                         <div className="w-4 h-4 text-gray-400">🔒</div>
                         <div className="w-4 h-4 text-gray-400">📱</div>
@@ -182,15 +181,13 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
               </div>
               <div className="flex-shrink-0 ml-4">
                 <div
-                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${
-                    bluetoothEnabled ? "bg-blue-500" : "bg-gray-600"
-                  }`}
+                  className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${bluetoothEnabled ? "bg-blue-500" : "bg-gray-600"
+                    }`}
                   onClick={() => setBluetoothEnabled(!bluetoothEnabled)}
                 >
                   <div
-                    className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                      bluetoothEnabled ? "translate-x-6" : "translate-x-0.5"
-                    }`}
+                    className={`w-5 h-5 bg-white rounded-full transition-transform ${bluetoothEnabled ? "translate-x-6" : "translate-x-0.5"
+                      }`}
                   />
                 </div>
               </div>
@@ -220,19 +217,19 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
               <div className="grid grid-cols-3 gap-4 mb-4">
                 <div className="text-center">
                   <div className="rounded p-3 mb-2" style={{ backgroundColor: "#1d1f20" }}>
-                    <div className="text-xs text-gray-300">Here's to the crazy ones...</div>
+                    <div className="text-xs text-gray-300">Here is to the crazy ones...</div>
                   </div>
                   <span className="text-xs text-white">Larger Text</span>
                 </div>
                 <div className="text-center">
                   <div className="bg-blue-600 rounded p-3 mb-2 border-2 border-blue-400">
-                    <div className="text-xs text-white">Here's to the crazy ones...</div>
+                    <div className="text-xs text-white">Here is to the crazy ones...</div>
                   </div>
                   <span className="text-xs text-white">Default</span>
                 </div>
                 <div className="text-center">
                   <div className="rounded p-3 mb-2" style={{ backgroundColor: "#1d1f20" }}>
-                    <div className="text-xs text-gray-300">Here's to the crazy ones...</div>
+                    <div className="text-xs text-gray-300">Here is to the crazy ones...</div>
                   </div>
                   <span className="text-xs text-white">More Space</span>
                 </div>
@@ -268,15 +265,13 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white font-medium text-sm">Automatically adjust brightness</span>
                   <div
-                    className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${
-                      autoBrightness ? "bg-blue-500" : "bg-gray-600"
-                    }`}
+                    className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${autoBrightness ? "bg-blue-500" : "bg-gray-600"
+                      }`}
                     onClick={() => setAutoBrightness(!autoBrightness)}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                        autoBrightness ? "translate-x-6" : "translate-x-0.5"
-                      }`}
+                      className={`w-5 h-5 bg-white rounded-full transition-transform ${autoBrightness ? "translate-x-6" : "translate-x-0.5"
+                        }`}
                     />
                   </div>
                 </div>
@@ -299,15 +294,13 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                     </p>
                   </div>
                   <div
-                    className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${
-                      trueTone ? "bg-blue-500" : "bg-gray-600"
-                    }`}
+                    className={`w-12 h-6 rounded-full cursor-pointer transition-colors flex items-center ${trueTone ? "bg-blue-500" : "bg-gray-600"
+                      }`}
                     onClick={() => setTrueTone(!trueTone)}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                        trueTone ? "translate-x-6" : "translate-x-0.5"
-                      }`}
+                      className={`w-5 h-5 bg-white rounded-full transition-transform ${trueTone ? "translate-x-6" : "translate-x-0.5"
+                        }`}
                     />
                   </div>
                 </div>
@@ -331,7 +324,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
           <div className="p-4 space-y-4">
             <div className="flex items-center justify-between mb-4">
               <div className="rounded-lg p-4 w-48" style={{ backgroundColor: "#1d1f20" }}>
-                <img
+                <Image
                   src={currentWallpaper || "/placeholder.svg"}
                   alt="Current wallpaper"
                   className="w-full h-24 object-cover rounded"
@@ -372,12 +365,11 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                 {wallpapers.map((wallpaper) => (
                   <div
                     key={wallpaper.id}
-                    className={`relative cursor-pointer rounded-lg overflow-hidden ${
-                      currentWallpaper === wallpaper.url ? "ring-2 ring-blue-500" : ""
-                    }`}
+                    className={`relative cursor-pointer rounded-lg overflow-hidden ${currentWallpaper === wallpaper.url ? "ring-2 ring-blue-500" : ""
+                      }`}
                     onClick={() => setCurrentWallpaper(wallpaper.url)}
                   >
-                    <img
+                    <Image
                       src={wallpaper.url || "/placeholder.svg"}
                       alt={wallpaper.name}
                       className="w-full h-20 object-cover"
@@ -432,13 +424,12 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
           {settingsSections.map((section) => (
             <button
               key={section.id}
-              className={`w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-700 transition-colors ${
-                activeSection === section.id ? "bg-blue-600 hover:bg-blue-600" : ""
-              }`}
+              className={`w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-700 transition-colors ${activeSection === section.id ? "bg-blue-600 hover:bg-blue-600" : ""
+                }`}
               onClick={() => setActiveSection(section.id)}
             >
               {section.icon}
-              <span className="text-sm text-white text-sm">{section.title}</span>
+              <span className="text-sm text-white">{section.title}</span>
             </button>
           ))}
         </div>
