@@ -55,6 +55,7 @@ export function VSCode() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
   const [editingFileId, setEditingFileId] = useState<string | null>(null)
   const [editingFileName, setEditingFileName] = useState("")
+  const [cursorPosition, setCursorPosition] = useState({ line: 1, column: 1 })
 
   const activeFile = files.find((f) => f.id === activeFileId)
 
@@ -124,6 +125,18 @@ export function VSCode() {
     ))
   }
 
+  const updateCursorPosition = (e: React.ChangeEvent<HTMLTextAreaElement> | React.SyntheticEvent<HTMLTextAreaElement>) => {
+    const value = e.currentTarget.value
+    const caretIndex = e.currentTarget.selectionStart
+
+    const lines = value.substring(0, caretIndex).split("\n")
+    const line = lines.length
+    const column = lines[lines.length - 1].length + 1 // 1-based index
+
+    setCursorPosition({ line, column })
+  }
+
+
   return (
     <div className="flex h-full bg-gray-900 text-white">
       {/* Activity Bar */}
@@ -171,9 +184,8 @@ export function VSCode() {
               {files.map((file) => (
                 <div
                   key={file.id}
-                  className={`flex items-center space-x-2 p-1 rounded cursor-pointer group ${
-                    activeFileId === file.id ? "bg-gray-700" : "hover:bg-gray-700"
-                  }`}
+                  className={`flex items-center space-x-2 p-1 rounded cursor-pointer group ${activeFileId === file.id ? "bg-gray-700" : "hover:bg-gray-700"
+                    }`}
                   onClick={() => setActiveFileId(file.id)}
                 >
                   <span className="text-sm">{getFileIcon(file.language)}</span>
@@ -248,9 +260,8 @@ export function VSCode() {
           {files.map((file) => (
             <div
               key={file.id}
-              className={`flex items-center space-x-2 px-3 py-2 border-r border-gray-700 cursor-pointer ${
-                activeFileId === file.id ? "bg-gray-900" : "hover:bg-gray-700"
-              }`}
+              className={`flex items-center space-x-2 px-3 py-2 border-r border-gray-700 cursor-pointer ${activeFileId === file.id ? "bg-gray-900" : "hover:bg-gray-700"
+                }`}
               onClick={() => setActiveFileId(file.id)}
             >
               <span className="text-sm">{getFileIcon(file.language)}</span>
@@ -281,7 +292,10 @@ export function VSCode() {
           <div className="flex-1">
             <textarea
               value={activeFile?.content || ""}
-              onChange={(e) => updateFileContent(e.target.value)}
+              onChange={(e) => {
+                updateFileContent(e.target.value)
+                updateCursorPosition(e)
+              }}
               className="w-full h-full bg-gray-900 text-white pl-4 pt-4 pr-4 pb-4 resize-none border-none outline-none font-mono text-sm leading-6"
               placeholder="Start coding..."
               spellCheck={false}
@@ -296,18 +310,8 @@ export function VSCode() {
         {/* Status Bar */}
         <div className="h-6 bg-blue-600 flex items-center justify-between px-4 text-xs">
           <div className="flex items-center space-x-4">
-            <span>⚠ 0</span>
-            <span>🔺 0</span>
-            <span>📶 Live Share</span>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <span>Ln 1, Col 1</span>
-            <span>Spaces: 2</span>
-            <span>UTF-8</span>
-            <span>LF</span>
+            <span>Ln {cursorPosition.line}, Col {cursorPosition.column}</span>
             <span>{activeFile?.language || "JavaScript"}</span>
-            <span>🔄 Go Live</span>
           </div>
         </div>
       </div>
