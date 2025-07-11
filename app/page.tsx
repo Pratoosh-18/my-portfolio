@@ -2,11 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  User,
   FileText,
   Mail,
   Terminal,
-  Settings,
   Search,
   Trash2,
   Clock,
@@ -310,8 +308,9 @@ function MacOSDesktop() {
                   key={index}
                   className="w-full p-2 text-left flex items-center space-x-3 mb-1"
                 >
-                  <img
+                  <Image
                     src="/folder-icon.png"
+                    height={20} width={20}
                     alt="Folder"
                     className="w-4 h-4 flex-shrink-0"
                   />
@@ -467,7 +466,8 @@ function MacOSDesktop() {
           }}
         >
           <div className="bg-white p-2 rounded-lg shadow-lg">
-            <img
+            <Image
+              height={20} width={20}
               src={photo.data || "/placeholder.svg"}
               alt={`Captured ${new Date(photo.timestamp).toLocaleTimeString()}`}
               className="w-24 h-18 object-cover rounded"
