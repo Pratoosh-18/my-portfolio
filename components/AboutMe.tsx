@@ -61,7 +61,7 @@ export function AboutMe() {
                 }`}
               onClick={() => setSelectedSection(section)}
             >
-              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{section.name}</span>
             </button>
           ))}

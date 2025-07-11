@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import { MapPin, Users, Calendar, ExternalLink, GitBranch, Star } from "lucide-react"
+import Image from "next/image"
 
 interface GitHubUser {
   login: string
@@ -136,7 +137,8 @@ export function GitHub() {
       {/* Left Sidebar - Profile Info */}
       <div className="w-80 border-r border-gray-700 p-6 overflow-y-auto" style={{ backgroundColor: "#0d1117" }}>
         <div className="text-center mb-6">
-          <img
+          <Image 
+            height={20} width={20}
             src={user.avatar_url || "/placeholder.svg"}
             alt={user.name}
             className="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-gray-600"

@@ -3,6 +3,7 @@ import { useState } from "react"
 import type React from "react"
 
 import { ChevronLeft, ChevronRight, Award, Trophy, Star, Medal } from "lucide-react"
+import Image from "next/image"
 
 interface Achievement {
   id: string
@@ -87,7 +88,7 @@ export function Achievements() {
               }`}
               onClick={() => setSelectedAchievement(achievement)}
             >
-              <img src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
+              <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
               <span className="text-white text-xs truncate">{achievement.title}</span>
             </button>
           ))}
@@ -111,7 +112,8 @@ export function Achievements() {
         <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: "#1d1f20" }}>
           <div className="space-y-4">
             <div className="w-full">
-              <img
+              <Image
+                height={20} width={20}
                 src={selectedAchievement.image || "/placeholder.svg"}
                 alt={selectedAchievement.title}
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
