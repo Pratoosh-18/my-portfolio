@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { X, Minus, Square } from "lucide-react"
 
 interface WindowProps {
@@ -20,7 +20,6 @@ interface WindowProps {
 }
 
 export function Window({
-  appId,
   title,
   onClose,
   onMinimize,
@@ -38,10 +37,28 @@ export function Window({
   const [isMaximized, setIsMaximized] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
-  const [internalZIndex, setZIndex] = useState(() => Date.now())
   const [isAnimating, setIsAnimating] = useState(false)
 
   const windowRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (isDragging) {
+      e.preventDefault()
+      setPosition({
+        x: e.clientX - dragOffset.x,
+        y: Math.max(24, e.clientY - dragOffset.y),
+      })
+    }
+  }, [isDragging, dragOffset])
+
+  const handleMouseUp = useCallback(() => {
+    if (isDragging) {
+      setIsDragging(false)
+      onDragEnd?.()
+    }
+    document.body.style.userSelect = ""
+    document.body.style.webkitUserSelect = ""
+  }, [isDragging, onDragEnd])
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget || (e.target as HTMLElement).closest(".window-header")) {
@@ -51,31 +68,11 @@ export function Window({
         x: e.clientX - position.x,
         y: e.clientY - position.y,
       })
-      setZIndex(Date.now())
       onDragStart?.()
 
       document.body.style.userSelect = "none"
       document.body.style.webkitUserSelect = "none"
     }
-  }
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
-      e.preventDefault()
-      setPosition({
-        x: e.clientX - dragOffset.x,
-        y: Math.max(24, e.clientY - dragOffset.y),
-      })
-    }
-  }
-
-  const handleMouseUp = () => {
-    if (isDragging) {
-      setIsDragging(false)
-      onDragEnd?.()
-    }
-    document.body.style.userSelect = ""
-    document.body.style.webkitUserSelect = ""
   }
 
   const handleMaximize = () => {
@@ -104,7 +101,7 @@ export function Window({
         document.removeEventListener("mouseup", handleMouseUp)
       }
     }
-  }, [isDragging, dragOffset])
+  }, [isDragging, handleMouseMove, handleMouseUp])
 
   const handleWindowClick = () => {
     onFocus?.()
@@ -119,7 +116,7 @@ export function Window({
         top: position.y,
         width: size.width,
         height: size.height,
-        zIndex: zIndex,
+        zIndex,
         backgroundColor: "rgba(28,30,31,255)",
         transition: isAnimating ? "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" : "none",
       }}

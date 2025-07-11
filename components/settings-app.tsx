@@ -300,10 +300,12 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                 <h4 className="text-white font-medium text-sm">Dynamic Wallpapers</h4>
               </div>
               <div className="grid grid-cols-4 gap-4">
-                {wallpapers.map((wallpaper,key) => (
-                  <div className="flex flex-col justify-center items-center">
+                {wallpapers.map((wallpaper) => (
+                  <div
+                    key={wallpaper.id}
+                    className="flex flex-col justify-center items-center"
+                  >
                     <div
-                      key={wallpaper.name}
                       onClick={() => setCurrentWallpaper(wallpaper.url)}
                       className="relative w-full aspect-video cursor-pointer rounded overflow-hidden"
                     >

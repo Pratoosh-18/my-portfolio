@@ -17,6 +17,10 @@ interface DockProps {
   getAppPreview?: (appId: string) => React.ReactNode
 }
 
+interface MinimizedDockApp extends DockApp {
+  isMinimized: boolean
+}
+
 export function Dock({ apps, onAppClick, getAppPreview }: DockProps) {
   const { isAppOpen, minimizedApps } = useTaskbar()
   const [screenWidth, setScreenWidth] = useState(1200)
@@ -37,11 +41,11 @@ export function Dock({ apps, onAppClick, getAppPreview }: DockProps) {
 
   // Get minimized apps that aren't already in regular apps
   const minimizedAppData = minimizedApps
-    .map((appId) => {
+    .map((appId): MinimizedDockApp | null => {
       const app = apps.find((a) => a.id === appId)
       return app ? { ...app, isMinimized: true } : null
     })
-    .filter(Boolean)
+    .filter((app): app is MinimizedDockApp => app !== null)
 
   // Calculate dock width with base sizing
   const baseAppSize = 48
@@ -126,8 +130,6 @@ export function Dock({ apps, onAppClick, getAppPreview }: DockProps) {
             >
               {getMinimizedAppIcon(app.id)}
             </button>
-
-            {/* White dot for minimized apps */}
             <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white rounded-full"></div>
           </div>
         ))}
