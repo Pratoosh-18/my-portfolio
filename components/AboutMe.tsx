@@ -9,7 +9,6 @@ export function AboutMe() {
 
   return (
     <div className="flex h-full" style={{ backgroundColor: "#1c1e1f" }}>
-      {/* Left Panel - About Sections */}
       <div className="flex-1 w-64 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1c1e1f" }}>
         <div className="p-3 border-b border-gray-600">
           <h2 className="text-base font-semibold text-white">About Me</h2>
@@ -30,7 +29,6 @@ export function AboutMe() {
         </div>
       </div>
 
-      {/* Middle Panel - Section Content */}
       <div className="flex-1 border-r border-gray-600 flex flex-col" style={{ backgroundColor: "#1c1e1f" }}>
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
@@ -52,7 +50,6 @@ export function AboutMe() {
         </div>
       </div>
 
-      {/* Right Panel - Profile Info */}
       <div className="w-80 flex flex-1 flex-col">
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
