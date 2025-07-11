@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Wifi, BatteryLow , Search, Bell } from "lucide-react";
+import { Wifi, BatteryLow , Search } from "lucide-react";
 import Image from "next/image";
 
 export function TopBar() {

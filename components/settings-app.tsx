@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Wifi, Bluetooth, Search, ChevronLeft, ChevronRight, ChevronDown, Sun, Monitor, Palette } from "lucide-react"
+import { Wifi, Bluetooth, Search, ChevronLeft, ChevronRight, Sun, Monitor, Palette } from "lucide-react"
 import Image from "next/image"
 
 interface SettingsAppProps {
@@ -109,7 +109,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full" />
-                      <span className="text-white text-sm font-medium">Pratoosh's iphone</span>
+                      <span className="text-white text-sm font-medium">Pratoosh iphone</span>
                       <span className="text-xs text-gray-400">Connected</span>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -124,7 +124,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                   <h4 className="text-white font-medium text-sm mb-3">Personal Hotspots</h4>
                   <div className="rounded-lg p-4 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                     <div className="flex items-center justify-between">
-                      <span className="text-white text-sm">{"Pratoosh's iPhone"}</span>
+                      <span className="text-white text-sm">{"Pratoosh iPhone"}</span>
                       <div className="flex items-center space-x-2">
                         <div className="w-4 h-4 text-gray-400">🔒</div>
                         <div className="w-4 h-4 text-gray-400">📱</div>
@@ -276,7 +276,8 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
           <div className="p-4 space-y-4">
             <div className="flex items-center justify-between mb-4">
               <div className="rounded-lg p-1 w-48 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
-                <img
+                <Image
+                  height={20} width={20}
                   src={currentWallpaper || "/placeholder.svg"}
                   alt="Current wallpaper"
                   className="w-full h-24 object-cover rounded"
@@ -299,7 +300,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
                 <h4 className="text-white font-medium text-sm">Dynamic Wallpapers</h4>
               </div>
               <div className="grid grid-cols-4 gap-4">
-                {wallpapers.map((wallpaper) => (
+                {wallpapers.map((wallpaper,key) => (
                   <div className="flex flex-col justify-center items-center">
                     <div
                       key={wallpaper.name}
