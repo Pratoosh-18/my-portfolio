@@ -302,7 +302,7 @@ export function VSCode() {
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"
-              data-gramm="false"
+              data-gramm="false" 
             />
           </div>
         </div>
