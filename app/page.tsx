@@ -11,9 +11,6 @@ import {
   Award,
   Briefcase,
   Edit3,
-  Code,
-  CalendarIcon,
-  CalculatorIcon,
 } from "lucide-react";
 import { Window } from "@/components/Window";
 import { Dock } from "@/components/Dock";
@@ -48,6 +45,12 @@ interface WebsiteWindow {
   title: string;
   url: string;
 }
+
+const DockIcon = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="w-14 h-14 flex items-center justify-center">
+    <Image src={src} alt={alt} width={50} height={50} className="object-contain w-14 h-14" />
+  </div>
+);
 
 function MacOSDesktop() {
   const { openApp, closeApp, minimizeApp, isAppOpen, isAppMinimized } =
@@ -93,7 +96,7 @@ function MacOSDesktop() {
     {
       id: "about",
       title: "About Me",
-      icon: <Image height={20} width={20} src="/folder-icon.png" alt="About Me" className="w-[40px] h-[40px]" />,
+      icon: <Image height={50} width={50} src="/folder-icon.png" alt="About Me" className="w-[40px] h-[40px]" />,
       isActive: false,
     },
     {
@@ -141,19 +144,19 @@ function MacOSDesktop() {
     {
       id: "vscode",
       title: "VS Code",
-      icon: <Code className="w-8 h-8" />,
+      icon: <DockIcon src="/dock/vscode.png" alt="vscode" />,
       isActive: false,
     },
     {
       id: "calendar",
       title: "Calendar",
-      icon: <CalendarIcon className="w-8 h-8" />,
+      icon: <DockIcon src="/dock/calendar.webp" alt="about" />,
       isActive: false,
     },
     {
       id: "calculator",
       title: "Calculator",
-      icon: <CalculatorIcon className="w-8 h-8" />,
+      icon: <DockIcon src="/dock/calculator.png" alt="calculator" />,
       isActive: false,
     },
     {
@@ -175,7 +178,7 @@ function MacOSDesktop() {
     { 
       id: "settings",
       title: "Settings",
-      icon: <Image height={20} width={20} src="/dock/settings.png" alt="About Me" className="w-[40px] h-[40px]" />,
+      icon: <DockIcon src="/dock/settings.png" alt="settings" />,
       isActive: false,
     },
     {
@@ -187,7 +190,7 @@ function MacOSDesktop() {
     {
       id: "google",
       title: "Google",
-      icon: <Search className="w-8 h-8" />,
+      icon: <DockIcon src="/dock/chrome.webp" alt="chrome" />,
       isActive: false,
     },
     {

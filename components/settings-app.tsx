@@ -277,7 +277,7 @@ export function SettingsApp({ currentWallpaper, setCurrentWallpaper, brightness,
             <div className="flex items-center justify-between mb-4">
               <div className="rounded-lg p-1 w-48 bg-[#292a2c] border-[0.5px] border-[#ffffff40]">
                 <Image
-                  height={20} width={20}
+                  height={500} width={500}
                   src={currentWallpaper || "/placeholder.svg"}
                   alt="Current wallpaper"
                   className="w-full h-24 object-cover rounded"
