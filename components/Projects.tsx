@@ -4,140 +4,7 @@ import type React from "react"
 
 import { ChevronLeft, ChevronRight, FileText, ExternalLink } from "lucide-react"
 import Image from "next/image"
-
-interface Project {
-  id: string
-  image : string
-  name: string
-  description: string
-  technologies: string[]
-  features: string[]
-  url: string
-  type: "folder" | "file"
-  files?: ProjectFile[]
-}
-
-interface ProjectFile {
-  id: string
-  name: string
-  type: "folder" | "file"
-  icon: React.ReactNode
-  description?: string
-}
-
-const projects: Project[] = [
-  {
-    id: "roadlens",
-    image : "/projects/roadlens.png",
-    name: "RoadLens",
-    description:
-      "A comprehensive road monitoring and analysis platform that uses advanced computer vision and AI to detect road conditions, traffic patterns, and infrastructure issues in real-time.",
-    technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Node.js", "MongoDB"],
-    features: [
-      "Real-time road condition monitoring",
-      "AI-powered traffic analysis",
-      "Infrastructure damage detection",
-      "Interactive dashboard with analytics",
-      "Mobile-responsive design",
-      "RESTful API integration",
-    ],
-    url: "https://road-lens.vercel.app/",
-    type: "folder",
-    files: [
-      { id: "app", name: "app", type: "folder", icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
-      {
-        id: "components",
-        name: "components",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      { id: "lib", name: "lib", type: "folder", icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
-      {
-        id: "public",
-        name: "public",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "styles",
-        name: "styles",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "utils",
-        name: "utils",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      { id: "package", name: "package.json", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
-      { id: "readme", name: "README.md", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
-      {
-        id: "next-config",
-        name: "next.config.js",
-        type: "file",
-        icon: <FileText className="w-4 h-4 text-yellow-500" />,
-      },
-      {
-        id: "tailwind",
-        name: "tailwind.config.ts",
-        type: "file",
-        icon: <FileText className="w-4 h-4 text-cyan-500" />,
-      },
-    ],
-  },
-  {
-    id: "estateedge",
-    image : "/projects/estateedge.png",
-    name: "EstateEdge-Marketplace",
-    description:
-      "A modern real estate marketplace platform that connects buyers, sellers, and agents. Features advanced search capabilities, virtual tours, and comprehensive property management tools.",
-    technologies: ["React", "Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
-    features: [
-      "Advanced property search and filtering",
-      "Virtual property tours",
-      "User authentication and profiles",
-      "Property listing management",
-      "Integrated payment processing",
-      "Real-time messaging system",
-      "Mobile-first responsive design",
-    ],
-    url: "https://estate-edge-real-estate-marketplace.vercel.app/",
-    type: "folder",
-    files: [
-      { id: "app", name: "app", type: "folder", icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
-      {
-        id: "components",
-        name: "components",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "prisma",
-        name: "prisma",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "public",
-        name: "public",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      { id: "lib", name: "lib", type: "folder", icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" /> },
-      {
-        id: "types",
-        name: "types",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      { id: "package", name: "package.json", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
-      { id: "env", name: ".env.local", type: "file", icon: <FileText className="w-4 h-4 text-green-500" /> },
-      { id: "schema", name: "schema.prisma", type: "file", icon: <FileText className="w-4 h-4 text-purple-500" /> },
-      { id: "readme", name: "README.md", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
-    ],
-  },
-]
+import { Project, projects } from "@/constants/Projects"
 
 interface ProjectsProps {
   onOpenWebsite?: (url: string, title: string) => void
@@ -231,7 +98,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
           <div className="space-y-4">
             {/* Project Preview Image */}
             <div className="w-full flex justify-center">
-              <Image 
+              <Image
                 height={1000} width={1000}
                 src={selectedProject.image}
                 alt={selectedProject.image}
