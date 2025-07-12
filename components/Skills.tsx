@@ -123,7 +123,7 @@ export function Skills() {
                   <div className="flex flex-wrap gap-1 mb-2">
                     {selectedSkill.tags.map((tag, index) => {
                       return <>
-                        <span className="px-2 py-1 bg-blue-600 text-white rounded text-xs">{tag}</span>
+                        <span key={index} className="px-2 py-1 bg-blue-600 text-white rounded text-xs">{tag}</span>
                       </>
                     })}
                   </div>
