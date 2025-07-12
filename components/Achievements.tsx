@@ -48,12 +48,12 @@ export function Achievements() {
 
         <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: "#1d1f20" }}>
           <div className="space-y-4">
-            <div className="w-full">
+            <div className="w-full flex justify-center">
               <Image
                 height={1000} width={1000}
                 src={selectedAchievement.image || "/placeholder.svg"}
                 alt={selectedAchievement.title}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
+                className="w-[450px] h-[400px] object-cover rounded-lg shadow-lg"
               />
             </div>
 
