@@ -51,7 +51,7 @@ export const contactMethods: ContactMethod[] = [
       id: "linkedin",
       name: "LinkedIn",
       type: "social",
-      value: "pratoosh-garg",
+      value: "linkedin.com/in/pratoosh-garg",
       copyValue: "https://www.linkedin.com/in/pratoosh-garg/",
       description: "Connect with me on LinkedIn for networking and opportunities.",
       information: [
