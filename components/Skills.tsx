@@ -26,9 +26,8 @@ export function Skills() {
           {skillCategories.map((category) => (
             <button
               key={category.id}
-              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 mb-1 ${
-                selectedCategory.id === category.id ? "bg-blue-600 rounded-sm" : ""
-              }`}
+              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 mb-1 ${selectedCategory.id === category.id ? "bg-blue-600 rounded-sm" : ""
+                }`}
               onClick={() => handleCategoryChange(category)}
             >
               <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
@@ -56,12 +55,11 @@ export function Skills() {
             {selectedCategory.skills.map((skill) => (
               <div
                 key={skill.id}
-                className={`flex items-center space-x-3 p-2 cursor-pointer transition-colors ${
-                  selectedSkill?.id === skill.id ? "bg-blue-600 rounded-sm" : ""
-                }`}
+                className={`flex items-center space-x-3 p-2 cursor-pointer transition-colors ${selectedSkill?.id === skill.id ? "bg-blue-600 rounded-sm" : ""
+                  }`}
                 onClick={() => setSelectedSkill(skill)}
               >
-                <Image height={12} width={12} src={"/file-icon.png"} alt="file-icon"/>
+                <Image height={12} width={12} src={"/file-icon.png"} alt="file-icon" />
                 <div className="flex-1 min-w-0">
                   <span className="text-white text-xs block truncate">{skill.name}</span>
                 </div>
@@ -97,7 +95,7 @@ export function Skills() {
                 {/* Skill Title and Type */}
                 <div className="text-center">
                   <h1 className="text-lg font-bold text-white">{selectedSkill.name}</h1>
-                  <p className="text-gray-400 text-sm">Programming Skill - {selectedSkill.proficiency}% proficiency</p>
+                  <p className="text-gray-400 text-sm">{selectedSkill.proficiency}% proficiency</p>
                 </div>
 
                 {/* Information Section */}
@@ -123,8 +121,11 @@ export function Skills() {
                 <div>
                   <h3 className="text-white font-medium mb-2 text-sm">Tags</h3>
                   <div className="flex flex-wrap gap-1 mb-2">
-                    <span className="px-2 py-1 bg-blue-600 text-white rounded text-xs">Programming</span>
-                    <span className="px-2 py-1 bg-blue-600 text-white rounded text-xs">Development</span>
+                    {selectedSkill.tags.map((tag, index) => {
+                      return <>
+                        <span className="px-2 py-1 bg-blue-600 text-white rounded text-xs">{tag}</span>
+                      </>
+                    })}
                   </div>
                 </div>
 
