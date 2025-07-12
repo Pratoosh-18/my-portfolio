@@ -1,10 +1,9 @@
 "use client"
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Search, Plus } from "lucide-react"
+import { ChevronLeft, ChevronRight, Plus } from "lucide-react"
 
 export function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date())
-  const [view, setView] = useState<"Day" | "Week" | "Month" | "Year">("Month")
 
   const monthNames = [
     "January",
@@ -104,9 +103,8 @@ export function Calendar() {
 
   return (
     <div className="flex flex-col h-full text-white" style={{ backgroundColor: "#1c1e20" }}>
-      {/* Header */}
       <div
-        className="flex items-center justify-between p-4 border-b border-gray-700 flex-shrink-0"
+        className="flex items-center justify-between px-4 py-3 border-b border-gray-700 flex-shrink-0"
         style={{ backgroundColor: "#1c1e20" }}
       >
         <div className="flex items-center space-x-4">
@@ -114,37 +112,9 @@ export function Calendar() {
             {monthNames[currentDate.getMonth()]} {currentDate.getFullYear()}
           </h1>
         </div>
-
-        <div className="flex items-center space-x-4">
-          {/* View Selector */}
-          <div className="flex bg-gray-800 rounded-lg">
-            {(["Day", "Week", "Month", "Year"] as const).map((viewType) => (
-              <button
-                key={viewType}
-                onClick={() => setView(viewType)}
-                className={`px-3 py-1 text-sm rounded-lg transition-colors ${
-                  view === viewType ? "bg-gray-600 text-white" : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {viewType}
-              </button>
-            ))}
-          </div>
-
-          {/* Search */}
-          <div className="flex items-center bg-gray-800 rounded-lg px-3 py-1">
-            <Search className="w-4 h-4 text-gray-400 mr-2" />
-            <input
-              type="text"
-              placeholder="Search"
-              className="bg-transparent text-sm text-white placeholder-gray-400 border-none outline-none"
-            />
-          </div>
-        </div>
       </div>
 
-      {/* Navigation */}
-      <div className="flex items-center justify-between p-4 flex-shrink-0" style={{ backgroundColor: "#1c1e20" }}>
+      <div className="flex items-center justify-between px-4 py-2 flex-shrink-0" style={{ backgroundColor: "#1c1e20" }}>
         <div className="flex items-center space-x-2">
           <button onClick={() => navigateMonth("prev")} className="p-1 hover:bg-gray-700 rounded">
             <ChevronLeft className="w-5 h-5" />
@@ -162,10 +132,8 @@ export function Calendar() {
         </button>
       </div>
 
-      {/* Calendar Grid Container */}
-      <div className="flex-1 p-4 min-h-0" style={{ backgroundColor: "#1c1e20" }}>
-        {/* Days of Week Header */}
-        <div className="grid grid-cols-7 mb-2 flex-shrink-0">
+      <div className="flex-1 px-4 py-2 min-h-0" style={{ backgroundColor: "#1c1e20" }}>
+        <div className="grid grid-cols-7 flex-shrink-0">
           {daysOfWeek.map((day) => (
             <div key={day} className="text-center text-sm font-medium text-gray-400 py-2">
               {day}
@@ -173,7 +141,6 @@ export function Calendar() {
           ))}
         </div>
 
-        {/* Calendar Days - Fixed height grid */}
         <div className="grid grid-cols-7 gap-0 border border-gray-700" style={{ height: "calc(100% - 40px)" }}>
           {renderCalendarGrid()}
         </div>

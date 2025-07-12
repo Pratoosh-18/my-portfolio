@@ -113,7 +113,7 @@ export function Calculator() {
   }) => (
     <button
       onClick={onClick}
-      className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl transition-all duration-150 active:scale-95 ${className}`}
+      className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-medium text-xl transition-all duration-150 active:scale-95 ${className}`}
       {...props}
     >
       {children}
@@ -121,98 +121,94 @@ export function Calculator() {
   )
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-4" style={{ backgroundColor: "#252526" }}>
-      <div
-        className="w-80 rounded-2xl p-4 shadow-2xl flex flex-col"
-        style={{ backgroundColor: "#252526", height: "450px" }}
-      >
-        {/* Display - Fixed height */}
-        <div className="mb-4 h-20 flex flex-col justify-end">
-          <div className="text-right text-gray-400 text-sm mb-1 h-4 overflow-hidden">
-            {previousValue !== null && operation ? `${previousValue} ${operation}` : ""}
-          </div>
-          <div className="text-right text-white text-4xl font-light h-12 flex items-end justify-end overflow-hidden">
-            <span className="truncate">{formatDisplay(display)}</span>
-          </div>
+    <div
+      className="w-full h-full p-4 shadow-2xl flex flex-col"
+      style={{ backgroundColor: "#252526"}}
+    >
+      <div className="mb-4 h-20 flex flex-col justify-end">
+        <div className="text-right text-gray-400 text-sm mb-1 h-4 overflow-hidden">
+          {previousValue !== null && operation ? `${previousValue} ${operation}` : ""}
         </div>
-
-        {/* Buttons - Fixed grid */}
-        <div className="grid grid-cols-4 gap-3 flex-1">
-          {/* Row 1 */}
-          <Button onClick={clear} className="bg-gray-600 hover:bg-gray-500">
-            AC
-          </Button>
-          <Button onClick={toggleSign} className="bg-gray-600 hover:bg-gray-500">
-            +/-
-          </Button>
-          <Button onClick={percentage} className="bg-gray-600 hover:bg-gray-500">
-            %
-          </Button>
-          <Button onClick={() => inputOperation("÷")} className="bg-orange-500 hover:bg-orange-400">
-            ÷
-          </Button>
-
-          {/* Row 2 */}
-          <Button onClick={() => inputNumber("7")} className="bg-gray-700 hover:bg-gray-600">
-            7
-          </Button>
-          <Button onClick={() => inputNumber("8")} className="bg-gray-700 hover:bg-gray-600">
-            8
-          </Button>
-          <Button onClick={() => inputNumber("9")} className="bg-gray-700 hover:bg-gray-600">
-            9
-          </Button>
-          <Button onClick={() => inputOperation("×")} className="bg-orange-500 hover:bg-orange-400">
-            ×
-          </Button>
-
-          {/* Row 3 */}
-          <Button onClick={() => inputNumber("4")} className="bg-gray-700 hover:bg-gray-600">
-            4
-          </Button>
-          <Button onClick={() => inputNumber("5")} className="bg-gray-700 hover:bg-gray-600">
-            5
-          </Button>
-          <Button onClick={() => inputNumber("6")} className="bg-gray-700 hover:bg-gray-600">
-            6
-          </Button>
-          <Button onClick={() => inputOperation("-")} className="bg-orange-500 hover:bg-orange-400">
-            -
-          </Button>
-
-          {/* Row 4 */}
-          <Button onClick={() => inputNumber("1")} className="bg-gray-700 hover:bg-gray-600">
-            1
-          </Button>
-          <Button onClick={() => inputNumber("2")} className="bg-gray-700 hover:bg-gray-600">
-            2
-          </Button>
-          <Button onClick={() => inputNumber("3")} className="bg-gray-700 hover:bg-gray-600">
-            3
-          </Button>
-          <Button onClick={() => inputOperation("+")} className="bg-orange-500 hover:bg-orange-400">
-            +
-          </Button>
-
-          {/* Row 5 */}
-          <Button onClick={() => {}} className="bg-gray-700 hover:bg-gray-600">
-            <div className="grid grid-cols-2 gap-1">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-              <div className="w-2 h-2 bg-white rounded-full"></div>
-            </div>
-          </Button>
-          <Button onClick={() => inputNumber("0")} className="bg-gray-700 hover:bg-gray-600">
-            0
-          </Button>
-          <Button onClick={inputDecimal} className="bg-gray-700 hover:bg-gray-600">
-            .
-          </Button>
-          <Button onClick={performCalculation} className="bg-orange-500 hover:bg-orange-400">
-            =
-          </Button>
+        <div className="text-right text-white text-4xl font-light h-12 flex items-end justify-end overflow-hidden">
+          <span className="truncate">{formatDisplay(display)}</span>
         </div>
+      </div>
+
+      <div className="grid grid-cols-4 gap-3 flex-1">
+        {/* Row 1 */}
+        <Button onClick={clear} className="bg-[#6d6d6c] ">
+          AC
+        </Button>
+        <Button onClick={toggleSign} className="bg-[#6d6d6c] ">
+          +/-
+        </Button>
+        <Button onClick={percentage} className="bg-[#6d6d6c] ">
+          %
+        </Button>
+        <Button onClick={() => inputOperation("÷")} className="bg-[#ff9500]">
+          ÷
+        </Button>
+
+        {/* Row 2 */}
+        <Button onClick={() => inputNumber("7")} className="bg-[#4f4e4e]">
+          7
+        </Button>
+        <Button onClick={() => inputNumber("8")} className="bg-[#4f4e4e]">
+          8
+        </Button>
+        <Button onClick={() => inputNumber("9")} className="bg-[#4f4e4e]">
+          9
+        </Button>
+        <Button onClick={() => inputOperation("×")} className="bg-[#ff9500]">
+          ×
+        </Button>
+
+        {/* Row 3 */}
+        <Button onClick={() => inputNumber("4")} className="bg-[#4f4e4e]">
+          4
+        </Button>
+        <Button onClick={() => inputNumber("5")} className="bg-[#4f4e4e]">
+          5
+        </Button>
+        <Button onClick={() => inputNumber("6")} className="bg-[#4f4e4e]">
+          6
+        </Button>
+        <Button onClick={() => inputOperation("-")} className="bg-[#ff9500]">
+          -
+        </Button>
+
+        {/* Row 4 */}
+        <Button onClick={() => inputNumber("1")} className="bg-[#4f4e4e]">
+          1
+        </Button>
+        <Button onClick={() => inputNumber("2")} className="bg-[#4f4e4e]">
+          2
+        </Button>
+        <Button onClick={() => inputNumber("3")} className="bg-[#4f4e4e]">
+          3
+        </Button>
+        <Button onClick={() => inputOperation("+")} className="bg-[#ff9500]">
+          +
+        </Button>
+
+        {/* Row 5 */}
+        <Button onClick={() => { }} className="bg-[#4f4e4e]">
+          <div className="grid grid-cols-2 gap-1">
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="w-2 h-2 bg-white rounded-full"></div>
+          </div>
+        </Button>
+        <Button onClick={() => inputNumber("0")} className="bg-[#4f4e4e]">
+          0
+        </Button>
+        <Button onClick={inputDecimal} className="bg-[#4f4e4e]">
+          .
+        </Button>
+        <Button onClick={performCalculation} className="bg-[#ff9500]">
+          =
+        </Button>
       </div>
     </div>
   )

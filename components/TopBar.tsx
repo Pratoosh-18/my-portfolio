@@ -52,11 +52,9 @@ export function TopBar() {
     return `${dayName} ${day} ${month} ${hour}:${minute} ${ampm}`;
   };
   return (
-    <div className="h-8 bg-black/20 backdrop-blur-md border-b border-white/10 flex items-center justify-between px-4 text-white text-sm font-medium fixed top-0 left-0 right-0 z-50">
+    <div className="bg-black/20 backdrop-blur-md border-b border-white/10 flex items-center justify-between px-4 text-white fixed top-0 left-0 right-0 z-50 text-xs">
       <div className="flex items-center space-x-6">
-        <div className="text-lg">
-          <Image width={30} height={30} src={"/apple-logo.png"} alt="icon" className="fill-white"/>
-        </div>
+        <Image width={30} height={30} src={"/apple-logo.png"} alt="icon" className="fill-white"/>
         <span>Finder</span>
         <span>File</span>
         <span>Edit</span>

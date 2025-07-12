@@ -162,7 +162,6 @@ export function VSCode() {
         </button>
       </div>
 
-      {/* File Explorer Sidebar */}
       <div
         className={`${sidebarCollapsed ? "w-0" : "w-64"} bg-gray-800 border-r border-gray-700 flex flex-col transition-all duration-200 overflow-hidden`}
       >
@@ -229,9 +228,7 @@ export function VSCode() {
         )}
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        {/* Top Bar */}
         <div className="h-8 bg-gray-800 border-b border-gray-700 flex items-center justify-between px-4">
           <div className="flex items-center space-x-4">
             {sidebarCollapsed && (
@@ -281,14 +278,11 @@ export function VSCode() {
           ))}
         </div>
 
-        {/* Editor */}
         <div className="flex-1 flex bg-gray-900">
-          {/* Line Numbers */}
           <div className="w-12 bg-gray-800 border-r border-gray-700 pt-4 pb-4 overflow-hidden">
             {generateLineNumbers(activeFile?.content || "")}
           </div>
 
-          {/* Text Area */}
           <div className="flex-1">
             <textarea
               value={activeFile?.content || ""}
@@ -297,22 +291,18 @@ export function VSCode() {
                 updateCursorPosition(e)
               }}
               className="w-full h-full bg-gray-900 text-white pl-4 pt-4 pr-4 pb-4 resize-none border-none outline-none font-mono text-sm leading-6"
-              placeholder="Start coding..."
               spellCheck={false}
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"
-              data-gramm="false" 
+              data-gramm="false"
             />
           </div>
         </div>
 
-        {/* Status Bar */}
-        <div className="h-6 bg-blue-600 flex items-center justify-between px-4 text-xs">
-          <div className="flex items-center space-x-4">
-            <span>Ln {cursorPosition.line}, Col {cursorPosition.column}</span>
-            <span>{activeFile?.language || "JavaScript"}</span>
-          </div>
+        <div className="h-8 bg-[#0f0f0f] flex items-center justify-between px-4 text-xs">
+          <p>Ln {cursorPosition.line}, Col {cursorPosition.column}</p>
+          <p>{activeFile?.language || "JavaScript"}</p>
         </div>
       </div>
     </div>

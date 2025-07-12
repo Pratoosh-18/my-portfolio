@@ -404,7 +404,7 @@ function MacOSDesktop() {
     if (appId === "calculator") {
       return {
         disableMaximize: true,
-        fixedSize: { width: 320, height: 500 },
+        fixedSize: { width: 280, height: 500 },
       };
     }
     if (appId === "chess") {

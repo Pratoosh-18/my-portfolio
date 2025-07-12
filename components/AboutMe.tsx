@@ -10,7 +10,7 @@ export function AboutMe() {
 
   return (
     <div className="flex h-full" style={{ backgroundColor: "#1c1e1f" }}>
-      <div className="flex-1 w-64 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1c1e1f" }}>
+      <div className="w-2/8 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1c1e1f" }}>
         <div className="p-3 border-b border-gray-600">
           <h2 className="text-base font-semibold text-white">About Me</h2>
         </div>
@@ -30,7 +30,7 @@ export function AboutMe() {
         </div>
       </div>
 
-      <div className="flex-1 border-r border-gray-600 flex flex-col" style={{ backgroundColor: "#1c1e1f" }}>
+      <div className="w-3/8 border-r border-gray-600 flex flex-col" style={{ backgroundColor: "#1c1e1f" }}>
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
             <button className="p-1 hover:bg-gray-700 rounded">
@@ -51,7 +51,7 @@ export function AboutMe() {
         </div>
       </div>
 
-      <div className="w-80 flex flex-1 flex-col">
+      <div className="w-3/8 flex flex-1 flex-col">
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
             <button className="p-1 hover:bg-gray-700 rounded">
@@ -63,15 +63,15 @@ export function AboutMe() {
           </div>
         </div>
 
-        <div className="flex-1 p-3 flex flex-col justify-center items-center" style={{ backgroundColor: "#1d1f20" }}>
-          <div className="text-center max-w-full">
+        <div className="flex-1 flex flex-col justify-center items-center" style={{ backgroundColor: "#1d1f20" }}>
+          <div className="text-center w-full px-2">
             <div className="mb-3">
               <Image
                 src="/portfolio/image.jpeg"
                 alt="Profile"
                 width={200}
                 height={200}
-                className="w-50 h-50 rounded-lg object-cover mx-auto shadow-lg"
+                className="w-full h-full max-h-[400px] max-w-[400px] rounded-lg object-cover mx-auto shadow-lg"
               />
             </div>
             <div className="space-y-1 mb-3">
@@ -79,21 +79,20 @@ export function AboutMe() {
               <p className="text-sm text-gray-400">Age: 20</p>
               <p className="text-gray-400 text-xs">Full Stack Developer</p>
             </div>
-
-            <div className="text-left bg-gray-800 rounded-lg p-2 w-full">
-              <h3 className="text-white font-medium mb-2 text-xs">Information</h3>
-              <div className="space-y-1 text-xs">
+            <div>
+              <h3 className="text-white font-medium mb-3 text-sm">Information</h3>
+              <div className="space-y-2 text-xs">
                 <div className="flex justify-between">
-                  <span className="text-gray-400 text-xs">Created</span>
-                  <span className="text-white text-right text-xs">18 Oct 2004</span>
+                  <span className="text-gray-400">Created</span>
+                  <span className="text-white">18 Oct 2004</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400 text-xs">Modified</span>
-                  <span className="text-white text-right text-xs">Never</span>
+                  <span className="text-gray-400">Modified</span>
+                  <span className="text-white">Never</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400 text-xs">Resolution</span>
-                  <span className="text-white text-xs">3840 x 2160 (4K)</span>
+                  <span className="text-gray-400">Resolution</span>
+                  <span className="text-white">3840 x 2160 (4K)</span>
                 </div>
               </div>
             </div>
