@@ -1,8 +1,4 @@
-export interface AboutSection {
-  id: string;
-  name: string;
-  content: string;
-}
+import { AboutSection } from "@/types";
 
 export const aboutSections: AboutSection[] = [
   {

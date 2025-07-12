@@ -4,7 +4,8 @@ import type React from "react"
 
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import Image from "next/image"
-import { Project, projects } from "@/constants/Projects"
+import { Project } from "@/types"
+import { projects } from "@/constants/projects"
 
 interface ProjectsProps {
   onOpenWebsite?: (url: string, title: string) => void

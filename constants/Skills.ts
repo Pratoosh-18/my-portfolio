@@ -1,20 +1,4 @@
-export interface SkillCategory {
-  id: string;
-  name: string;
-  skills: Skill[];
-}
-
-export interface Skill {
-  id: string;
-  name: string;
-  experience: string;
-  proficiency: number;
-  description: string;
-  projects: string[];
-  icon: string;
-  type: "file";
-  tags: string[]
-}
+import { SkillCategory } from "@/types";
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -35,7 +19,7 @@ export const skillCategories: SkillCategory[] = [
         ],
         icon: "⚛️",
         type: "file",
-        tags: ["Frontend", "JavaScript", "UI", "Web Development"]
+        tags: ["Frontend", "JavaScript", "UI", "Web Development"],
       },
       {
         id: "nextjs",
@@ -47,7 +31,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "EstateEdge Marketplace"],
         icon: "▲",
         type: "file",
-        tags: ["Frontend", "Full Stack", "Web Development", "Framework"]
+        tags: ["Frontend", "Full Stack", "Web Development", "Framework"],
       },
       {
         id: "typescript",
@@ -59,7 +43,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["EstateEdge Marketplace", "Portfolio Website"],
         icon: "📘",
         type: "file",
-        tags: ["Frontend", "Backend", "Type-Safety", "JavaScript"]
+        tags: ["Frontend", "Backend", "Type-Safety", "JavaScript"],
       },
       {
         id: "tailwind",
@@ -71,7 +55,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "EstateEdge Marketplace"],
         icon: "🎨",
         type: "file",
-        tags: ["Frontend", "Styling", "CSS", "Design System"]
+        tags: ["Frontend", "Styling", "CSS", "Design System"],
       },
     ],
   },
@@ -89,7 +73,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "EstateEdge Backend", "ADM Admin Panel"],
         icon: "🟢",
         type: "file",
-        tags: ["Backend", "JavaScript", "APIs", "Web Development"]
+        tags: ["Backend", "JavaScript", "APIs", "Web Development"],
       },
       {
         id: "fastapi",
@@ -101,7 +85,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["Samraksh", "RoadLens Video Inference"],
         icon: "⚡",
         type: "file",
-        tags: ["Backend", "Python", "APIs", "AI/ML"]
+        tags: ["Backend", "Python", "APIs", "AI/ML"],
       },
       {
         id: "python",
@@ -113,7 +97,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["Samraksh", "RoadLens", "Automation Tools"],
         icon: "🐍",
         type: "file",
-        tags: ["Backend", "AI/ML", "Scripting", "Computer Vision"]
+        tags: ["Backend", "AI/ML", "Scripting", "Computer Vision"],
       },
     ],
   },
@@ -131,7 +115,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "EstateEdge Marketplace", "Samraksh"],
         icon: "🍃",
         type: "file",
-        tags: ["Database", "NoSQL", "Backend", "Document DB"]
+        tags: ["Database", "NoSQL", "Backend", "Document DB"],
       },
       {
         id: "postgresql",
@@ -143,7 +127,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["EstateEdge Marketplace"],
         icon: "🐘",
         type: "file",
-        tags: ["Database", "SQL", "ORM", "Backend"]
+        tags: ["Database", "SQL", "ORM", "Backend"],
       },
     ],
   },
@@ -161,7 +145,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["Samraksh", "RoadLens Backend"],
         icon: "☁️",
         type: "file",
-        tags: ["Cloud", "DevOps", "Deployment", "Scalability"]
+        tags: ["Cloud", "DevOps", "Deployment", "Scalability"],
       },
       {
         id: "docker",
@@ -173,7 +157,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "Samraksh"],
         icon: "🐳",
         type: "file",
-        tags: ["DevOps", "Containerization", "CI/CD", "Deployment"]
+        tags: ["DevOps", "Containerization", "CI/CD", "Deployment"],
       },
       {
         id: "vercel",
@@ -185,7 +169,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "EstateEdge Marketplace", "Portfolio"],
         icon: "🚀",
         type: "file",
-        tags: ["Cloud", "Frontend", "Serverless", "Deployment"]
+        tags: ["Cloud", "Frontend", "Serverless", "Deployment"],
       },
     ],
   },
@@ -203,7 +187,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["Competitive Programming", "Hackathons"],
         icon: "📊",
         type: "file",
-        tags: ["Problem Solving", "Algorithms", "Interview Prep", "Logic"]
+        tags: ["Problem Solving", "Algorithms", "Interview Prep", "Logic"],
       },
       {
         id: "systemdesign",
@@ -215,7 +199,7 @@ export const skillCategories: SkillCategory[] = [
         projects: ["RoadLens", "EstateEdge Messaging"],
         icon: "🧱",
         type: "file",
-        tags: ["Architecture", "Backend", "Scalability", "Design"]
+        tags: ["Architecture", "Backend", "Scalability", "Design"],
       },
     ],
   },

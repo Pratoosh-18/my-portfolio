@@ -2,7 +2,8 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
-import { AboutSection, aboutSections } from "@/constants/About"
+import { AboutSection } from "@/types"
+import { aboutSections } from "@/constants/about"
 
 export function AboutMe() {
   const [selectedSection, setSelectedSection] = useState<AboutSection>(aboutSections[0])

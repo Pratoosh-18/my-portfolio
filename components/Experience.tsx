@@ -2,7 +2,8 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Briefcase, Calendar, MapPin } from "lucide-react"
 import Image from "next/image"
-import { ExperienceSection, experiences } from "@/constants/Experience"
+import { ExperienceSection } from "@/types"
+import { experiences } from "@/constants/experience"
 
 export function Experience() {
   const [selectedExperience, setSelectedExperience] = useState<ExperienceSection>(experiences[0])

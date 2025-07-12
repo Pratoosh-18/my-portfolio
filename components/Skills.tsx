@@ -3,8 +3,8 @@ import { useState } from "react"
 import type React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
-import { Skill, skillCategories, SkillCategory } from "@/constants/Skills"
-
+import { Skill, SkillCategory } from "@/types"
+import { skillCategories } from "@/constants/skills"
 
 export function Skills() {
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory>(skillCategories[0])
