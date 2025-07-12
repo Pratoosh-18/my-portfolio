@@ -137,66 +137,6 @@ const projects: Project[] = [
       { id: "readme", name: "README.md", type: "file", icon: <FileText className="w-4 h-4 text-gray-400" /> },
     ],
   },
-  {
-    id: "chatting-app",
-    image : "/projects/estateedge.png",
-    name: "Chatting app",
-    description: "Real-time chat application with modern UI and seamless messaging experience.",
-    technologies: ["React", "Socket.io", "Node.js", "Express"],
-    features: ["Real-time messaging", "User authentication", "Group chats", "File sharing"],
-    url: "https://example.com",
-    type: "folder",
-    files: [
-      {
-        id: "client",
-        name: "client",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "server",
-        name: "server",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "shared",
-        name: "shared",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-    ],
-  },
-  {
-    id: "doordash-clone",
-    image: "/projects/estateedge.png",
-    name: "doordash-clone",
-    description: "Food delivery application clone with modern features and responsive design.",
-    technologies: ["React Native", "Node.js", "MongoDB", "Express"],
-    features: ["Food ordering", "Real-time tracking", "Payment integration", "Restaurant management"],
-    url: "https://example.com",
-    type: "folder",
-    files: [
-      {
-        id: "mobile",
-        name: "mobile",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "backend",
-        name: "backend",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-      {
-        id: "admin",
-        name: "admin",
-        type: "folder",
-        icon: <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4" />,
-      },
-    ],
-  },
 ]
 
 interface ProjectsProps {
