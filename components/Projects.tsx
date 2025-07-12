@@ -7,6 +7,7 @@ import Image from "next/image"
 
 interface Project {
   id: string
+  image : string
   name: string
   description: string
   technologies: string[]
@@ -27,6 +28,7 @@ interface ProjectFile {
 const projects: Project[] = [
   {
     id: "roadlens",
+    image : "/projects/roadlens.png",
     name: "RoadLens",
     description:
       "A comprehensive road monitoring and analysis platform that uses advanced computer vision and AI to detect road conditions, traffic patterns, and infrastructure issues in real-time.",
@@ -86,6 +88,7 @@ const projects: Project[] = [
   },
   {
     id: "estateedge",
+    image : "/projects/estateedge.png",
     name: "EstateEdge-Marketplace",
     description:
       "A modern real estate marketplace platform that connects buyers, sellers, and agents. Features advanced search capabilities, virtual tours, and comprehensive property management tools.",
@@ -136,6 +139,7 @@ const projects: Project[] = [
   },
   {
     id: "chatting-app",
+    image : "/projects/estateedge.png",
     name: "Chatting app",
     description: "Real-time chat application with modern UI and seamless messaging experience.",
     technologies: ["React", "Socket.io", "Node.js", "Express"],
@@ -165,6 +169,7 @@ const projects: Project[] = [
   },
   {
     id: "doordash-clone",
+    image: "/projects/estateedge.png",
     name: "doordash-clone",
     description: "Food delivery application clone with modern features and responsive design.",
     technologies: ["React Native", "Node.js", "MongoDB", "Express"],
@@ -218,9 +223,8 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
           {projects.map((project) => (
             <button
               key={project.id}
-              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 mb-1 ${
-                selectedProject.id === project.id ? "bg-blue-600 rounded-sm" : ""
-              }`}
+              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 mb-1 ${selectedProject.id === project.id ? "bg-blue-600 rounded-sm" : ""
+                }`}
               onClick={() => setSelectedProject(project)}
             >
               <Image height={20} width={20} src="/folder-icon.png" alt="Folder" className="w-4 h-4 flex-shrink-0" />
@@ -287,10 +291,11 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
           <div className="space-y-4">
             {/* Project Preview Image */}
             <div className="w-full flex justify-center">
-              <Image height={20} width={20}
-                src="/placeholder.svg?height=200&width=300"
-                alt={selectedProject.name}
-                className="max-w-full h-48 object-cover rounded-lg shadow-lg"
+              <Image 
+                height={1000} width={1000}
+                src={selectedProject.image}
+                alt={selectedProject.image}
+                className="w-full h-full object-cover rounded-lg shadow-lg"
               />
             </div>
 
@@ -298,7 +303,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
             <div className="text-center">
               <h1 className="text-lg font-bold text-white">{selectedProject.name}</h1>
               <p className="text-gray-400 text-sm">
-                Web Application - {selectedProject.technologies.length} technologies
+                Web Application
               </p>
             </div>
 
@@ -310,14 +315,6 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
                   <span className="text-gray-400">Created</span>
                   <span className="text-white">Monday, 16 June 2025 at 8:07 PM</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Modified</span>
-                  <span className="text-white">Monday, 16 June 2025 at 8:08 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">Technologies</span>
-                  <span className="text-white">{selectedProject.technologies.length} items</span>
-                </div>
               </div>
             </div>
 
@@ -325,19 +322,6 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
             <div>
               <h3 className="text-white font-medium mb-2 text-sm">Description</h3>
               <p className="text-gray-300 text-xs leading-relaxed">{selectedProject.description}</p>
-            </div>
-
-            {/* Tags Section */}
-            <div>
-              <h3 className="text-white font-medium mb-2 text-sm">Tags</h3>
-              <div className="flex flex-wrap gap-1 mb-2">
-                {selectedProject.technologies.slice(0, 3).map((tech) => (
-                  <span key={tech} className="px-2 py-1 bg-blue-600 text-white rounded text-xs">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <button className="text-gray-400 text-xs">Add Tags...</button>
             </div>
 
             {/* Action Buttons */}
@@ -348,9 +332,6 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
               >
                 <ExternalLink className="w-6 h-6 text-gray-400" />
                 <span className="text-gray-400 text-xs">Visit Site</span>
-              </button>
-              <button className="flex flex-col items-center space-y-1 p-2 hover:bg-gray-700 rounded">
-                <span className="text-gray-400 text-xs">More...</span>
               </button>
             </div>
           </div>
