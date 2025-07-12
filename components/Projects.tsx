@@ -2,7 +2,7 @@
 import { useState } from "react"
 import type React from "react"
 
-import { ChevronLeft, ChevronRight, FileText, ExternalLink } from "lucide-react"
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import { Project, projects } from "@/constants/Projects"
 

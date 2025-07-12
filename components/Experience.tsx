@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, Briefcase, Calendar, MapPin, FileText } from "lucide-react"
+import { ChevronLeft, ChevronRight, Briefcase, Calendar, MapPin } from "lucide-react"
 import Image from "next/image"
 import { ExperienceSection, experiences } from "@/constants/Experience"
 
