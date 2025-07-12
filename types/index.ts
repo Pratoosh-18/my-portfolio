@@ -54,3 +54,29 @@ export interface Skill {
   type: "file";
   tags: string[];
 }
+
+export interface ContactInfo {
+  label: string;
+  value: string;
+}
+
+export interface QuickAction {
+  label: string;
+  url: string;
+}
+
+export interface ContactMethod {
+  id: string;
+  name: string;
+  type: string;
+  value: string;
+  copyValue: string;
+  description?: string;
+  information?: ContactInfo[];
+  tags?: string[];
+  quickAction?: QuickAction;
+}
+
+export interface ContactProps {
+  onOpenWebsite?: (url: string, title: string) => void
+}

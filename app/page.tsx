@@ -261,7 +261,7 @@ function MacOSDesktop() {
       skills: <Skills />,
       achievements: <Achievements />,
       resume: <Resume />,
-      contact: <Contact onOpenWebsite={handleOpenWebsite} />,
+      contact: <Contact/>,
       notepad: <Notepad />,
       vscode: <VSCode />,
       calendar: <Calendar />,
