@@ -209,8 +209,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
 
   return (
     <div className="flex h-full" style={{ backgroundColor: "#1d1f20" }}>
-      {/* Left Panel - Projects List */}
-      <div className="w-64 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1d1f20" }}>
+      <div className="w-1/4 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1d1f20" }}>
         <div className="p-3 border-b border-gray-600">
           <h2 className="text-base font-semibold text-white">Projects</h2>
         </div>
@@ -220,7 +219,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
             <button
               key={project.id}
               className={`w-full p-2 text-left transition-colors flex items-center space-x-3 mb-1 ${
-                selectedProject.id === project.id ? "bg-blue-600" : ""
+                selectedProject.id === project.id ? "bg-blue-600 rounded-sm" : ""
               }`}
               onClick={() => setSelectedProject(project)}
             >
@@ -231,8 +230,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
         </div>
       </div>
 
-      {/* Middle Panel - Tech Stack & Skills */}
-      <div className="w-80 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1d1f20" }}>
+      <div className="w-1/4 border-r border-gray-600 flex flex-col flex-shrink-0" style={{ backgroundColor: "#1d1f20" }}>
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
             <button className="p-1 hover:bg-gray-700 rounded">
@@ -272,8 +270,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
         </div>
       </div>
 
-      {/* Right Panel - Project Details */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="w-2/4 flex flex-col min-w-0">
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
             <button className="p-1 hover:bg-gray-700 rounded">

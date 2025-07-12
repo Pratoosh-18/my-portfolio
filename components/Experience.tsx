@@ -18,7 +18,7 @@ export function Experience() {
           {experiences.map((experience) => (
             <button
               key={experience.id}
-              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 rounded-md mb-1 ${selectedExperience.id === experience.id ? "bg-blue-600" : ""
+              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 rounded-md mb-1 ${selectedExperience.id === experience.id ? "bg-blue-600 rounded-sm" : ""
                 }`}
               onClick={() => {
                 setSelectedExperience(experience)

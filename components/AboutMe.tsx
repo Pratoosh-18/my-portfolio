@@ -18,7 +18,7 @@ export function AboutMe() {
           {aboutSections.map((section) => (
             <button
               key={section.id}
-              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 rounded-md mb-1 ${selectedSection.id === section.id ? "bg-blue-600" : ""
+              className={`w-full p-2 text-left transition-colors flex items-center space-x-3 rounded-md mb-1 ${selectedSection.id === section.id ? "bg-blue-600 rounded-sm" : ""
                 }`}
               onClick={() => setSelectedSection(section)}
             >
