@@ -61,7 +61,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
               <h3 className="text-white font-medium mb-2 text-sm px-2">Technologies Used</h3>
               {selectedProject.technologies.map((tech, index) => (
                 <div key={index} className="flex items-center space-x-3 p-2">
-                  <FileText className="w-4 h-4 text-blue-500" />
+                  <Image height={12} width={12} src={"/file-icon.png"} alt="file-icon"/>
                   <span className="text-white text-xs">{tech}</span>
                 </div>
               ))}
@@ -72,7 +72,7 @@ export function Projects({ onOpenWebsite }: ProjectsProps) {
               <h3 className="text-white font-medium mb-2 text-sm px-2">Key Features</h3>
               {selectedProject.features.map((feature, index) => (
                 <div key={index} className="flex items-start space-x-3 p-2">
-                  <FileText className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <Image height={12} width={12} src={"/file-icon.png"} alt="file-icon"/>
                   <span className="text-white text-xs">{feature}</span>
                 </div>
               ))}
