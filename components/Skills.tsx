@@ -85,20 +85,17 @@ export function Skills() {
 
             <div className="flex-1 overflow-y-auto p-4">
               <div className="space-y-4">
-                {/* Skill Icon Preview */}
                 <div className="w-full flex justify-center">
                   <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center">
                     <div className="text-4xl">{selectedSkill.icon}</div>
                   </div>
                 </div>
 
-                {/* Skill Title and Type */}
                 <div className="text-center">
                   <h1 className="text-lg font-bold text-white">{selectedSkill.name}</h1>
                   <p className="text-gray-400 text-sm">{selectedSkill.proficiency}% proficiency</p>
                 </div>
 
-                {/* Information Section */}
                 <div>
                   <h3 className="text-white font-medium mb-3 text-sm">Information</h3>
                   <div className="space-y-2 text-xs">
@@ -117,18 +114,14 @@ export function Skills() {
                   </div>
                 </div>
 
-                {/* Tags Section */}
                 <div>
                   <h3 className="text-white font-medium mb-2 text-sm">Tags</h3>
                   <div className="flex flex-wrap gap-1 mb-2">
                     {selectedSkill.tags.map((tag, index) => {
-                      return <>
-                        <span key={index} className="px-2 py-1 bg-blue-600 text-white rounded text-xs">{tag}</span>
-                      </>
+                      return <span key={index} className="px-2 py-1 bg-blue-600 text-white rounded text-xs">{tag}</span>
                     })}
                   </div>
                 </div>
-
               </div>
             </div>
           </>

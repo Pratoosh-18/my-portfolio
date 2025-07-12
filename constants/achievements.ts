@@ -8,7 +8,7 @@ export const achievements: Achievement[] = [
     date: "March 2024",
     description:
       "Won first place in the National Tech Hackathon 2024 for developing an innovative AI-powered road monitoring system. The project impressed judges with its real-world application and technical excellence, competing against 200+ teams from across the country.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/achievements/uhack.png",
   },
   {
     id: "certification-aws",

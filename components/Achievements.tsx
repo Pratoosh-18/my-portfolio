@@ -33,7 +33,6 @@ export function Achievements() {
         </div>
       </div>
 
-      {/* Right Panel - Achievement Details */}
       <div className="flex-1 flex flex-col min-w-0">
         <div className="flex items-center p-3 border-b border-gray-600" style={{ backgroundColor: "#1d1f20" }}>
           <div className="flex items-center space-x-2">
@@ -51,7 +50,7 @@ export function Achievements() {
           <div className="space-y-4">
             <div className="w-full">
               <Image
-                height={20} width={20}
+                height={1000} width={1000}
                 src={selectedAchievement.image || "/placeholder.svg"}
                 alt={selectedAchievement.title}
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
